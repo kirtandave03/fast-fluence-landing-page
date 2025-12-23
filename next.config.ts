@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  serverExternalPackages: ["typeorm", "mysql2", "reflect-metadata"],
+  experimental: {
+    serverComponentsExternalPackages: ["typeorm", "mysql2", "reflect-metadata"],
+  },
 };
 
 export default nextConfig;
