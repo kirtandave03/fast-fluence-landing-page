@@ -43,21 +43,20 @@ export default function Footer() {
                         <WaitlistUserForm />
                     </div>
                 </div>
-                <div className="mb-5 flex items-center justify-center gap-7">
+                <div className="mb-5 flex items-center justify-center gap-6">
                     <Image
                         src="/footer/Logo.png"
                         alt="FastFluence Logo"
-                        width={120}
-                        height={120}
-                        className="h-[120px] w-[120px]"
+                        width={90}
+                        height={90}
+                        className="h-[90px] w-[90px]"
                     />
                     <span
-                        className="text-gray-900"
                         style={{
                             fontFamily: "Sora, sans-serif",
                             fontWeight: 700,
                             fontStyle: "normal",
-                            fontSize: "43.24px",
+                            fontSize: "34.24px",
                             lineHeight: "124%",
                             letterSpacing: "5%",
                         }}
@@ -72,7 +71,7 @@ export default function Footer() {
                     {/* Google */}
                     <a
                         href="#"
-                        className="flex h-[52px] w-[52px] items-center justify-center rounded-[20px] transition-opacity hover:opacity-80"
+                        className="flex h-[45px] w-[45px] items-center justify-center rounded-[20px] transition-opacity hover:opacity-80"
                         style={{
                             background:
                                 "linear-gradient(135deg, rgba(59, 188, 255, 0.2) 0%, rgba(147, 109, 255, 0.2) 100%)",
@@ -90,7 +89,7 @@ export default function Footer() {
                     {/* Twitter */}
                     <a
                         href="#"
-                        className="flex h-[52px] w-[52px] items-center justify-center rounded-[20px] transition-opacity hover:opacity-80"
+                        className="flex h-[45px] w-[45px] items-center justify-center rounded-[20px] transition-opacity hover:opacity-80"
                         style={{
                             background:
                                 "linear-gradient(135deg, rgba(59, 188, 255, 0.2) 0%, rgba(147, 109, 255, 0.2) 100%)",
@@ -108,7 +107,7 @@ export default function Footer() {
                     {/* LinkedIn */}
                     <a
                         href="#"
-                        className="flex h-[52px] w-[52px] items-center justify-center rounded-[20px] transition-opacity hover:opacity-80"
+                        className="flex h-[45px] w-[45px] items-center justify-center rounded-[20px] transition-opacity hover:opacity-80"
                         style={{
                             background:
                                 "linear-gradient(135deg, rgba(59, 188, 255, 0.2) 0%, rgba(147, 109, 255, 0.2) 100%)",
@@ -126,7 +125,7 @@ export default function Footer() {
                     {/* Instagram */}
                     <a
                         href="#"
-                        className="flex h-[52px] w-[52px] items-center justify-center rounded-[20px] transition-opacity hover:opacity-80"
+                        className="flex h-[45px] w-[45px] items-center justify-center rounded-[20px] transition-opacity hover:opacity-80"
                         style={{
                             background:
                                 "linear-gradient(135deg, rgba(59, 188, 255, 0.2) 0%, rgba(147, 109, 255, 0.2) 100%)",
