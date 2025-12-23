@@ -5,24 +5,67 @@ import WaitlistUserForm from "./WaitlistUserForm";
 
 export default function Footer() {
     return (
-        <footer className="bg-white py-12 sm:py-16 md:py-20">
+        <footer id="waitlist-section" className="bg-white py-8 sm:py-8 md:py-8">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 {/* Waitlist Form */}
-                <div className="mb-12">
-                    <WaitlistUserForm />
-                </div>
-                <div className="mb-12 flex items-center justify-center gap-3">
-                    <Image
-                        src="/icon/logo.svg"
-                        alt="FastFluence Logo"
-                        width={44}
-                        height={44}
-                        className="h-11 w-11"
+                <div
+                    className="mb-12 mx-auto w-full max-w-[900px] relative"
+                    style={{
+                        borderRadius: "20px",
+                        overflow: "hidden",
+                    }}
+                >
+                    {/* Top border with gradient */}
+                    <div
+                        style={{
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            height: "1px",
+                            background: "linear-gradient(90deg, rgba(9, 121, 240, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%)",
+                            borderRadius: "20px 20px 0 20px",
+                        }}
                     />
-                    <span className="text-xl font-bold text-gray-900 sm:text-2xl">
+                    {/* Left border with gradient */}
+                    <div
+                        style={{
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                            bottom: 0,
+                            width: "1px",
+                            background: "linear-gradient(180deg, rgba(9, 121, 240, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%)",
+                            borderRadius: "20px 0 0 20px",
+                        }}
+                    />
+                    <div className="p-10 flex justify-center">
+                        <WaitlistUserForm />
+                    </div>
+                </div>
+                <div className="mb-5 flex items-center justify-center gap-7">
+                    <Image
+                        src="/footer/Logo.png"
+                        alt="FastFluence Logo"
+                        width={120}
+                        height={120}
+                        className="h-[120px] w-[120px]"
+                    />
+                    <span
+                        className="text-gray-900"
+                        style={{
+                            fontFamily: "Sora, sans-serif",
+                            fontWeight: 700,
+                            fontStyle: "normal",
+                            fontSize: "43.24px",
+                            lineHeight: "124%",
+                            letterSpacing: "5%",
+                        }}
+                    >
                         FastFluence
                     </span>
                 </div>
+
 
                 {/* Social Media Icons */}
                 <div className="flex items-center justify-center gap-2">

@@ -64,10 +64,14 @@ export default function Navbar() {
               </Link>
             ))}
             <button
+              onClick={() => {
+                const waitlistSection = document.getElementById("waitlist-section");
+                waitlistSection?.scrollIntoView({ behavior: "smooth" });
+              }}
               className="px-6 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
               style={{
-                borderRadius: "200px",
-                border: "0 solid #EEF7FF",
+                borderRadius: "30px",
+                border: "1px solid #FFF",
                 background:
                   "radial-gradient(95.2% 97.67% at 7.09% 23.91%, #3BBCFF 0%, #936DFF 100%)",
               }}
@@ -115,10 +119,15 @@ export default function Navbar() {
                 </Link>
               ))}
               <button
+                onClick={() => {
+                  const waitlistSection = document.getElementById("waitlist-section");
+                  waitlistSection?.scrollIntoView({ behavior: "smooth" });
+                  setIsMenuOpen(false);
+                }}
                 className="w-full px-6 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
                 style={{
-                  borderRadius: "200px",
-                  border: "0 solid #EEF7FF",
+                  borderRadius: "30px",
+                  border: "1px solid #FFF",
                   background:
                     "radial-gradient(95.2% 97.67% at 7.09% 23.91%, #3BBCFF 0%, #936DFF 100%)",
                 }}

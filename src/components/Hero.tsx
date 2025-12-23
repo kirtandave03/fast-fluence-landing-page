@@ -14,53 +14,9 @@ const carouselImages = [
 ];
 
 export default function Hero() {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [message, setMessage] = useState("");
   const containerRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [, forceUpdate] = useState({});
-
-  const handleJoinWaitlist = async () => {
-    if (!email) {
-      setMessage("Please enter an email address.");
-      setStatus("error");
-      return;
-    }
-
-    setStatus("loading");
-    setMessage("");
-
-    try {
-      const response = await fetch("/api/waitlist", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          firstName: "Hero", // Default for hero form
-          lastName: "User", // Default for hero form
-          industry: "Not specified", // Default for hero form
-        }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setStatus("success");
-        setMessage("Success! You've been added.");
-        setEmail("");
-      } else {
-        setStatus("error");
-        setMessage(data.message || "Failed to join.");
-      }
-    } catch (error) {
-      console.error("Hero Waitlist Error:", error);
-      setStatus("error");
-      setMessage("Connection error.");
-    }
-  };
 
   // Create infinite loop by tripling the images
   const infiniteImages = [
@@ -181,42 +137,23 @@ export default function Hero() {
           </p>
         </div>
 
-        {/* Email Input with Button Inside */}
+        {/* Join Waitlist Button */}
         <div className="mb-8 flex flex-col items-center justify-center">
-          <div
-            className="relative flex w-full max-w-md items-center overflow-hidden"
+          <button
+            onClick={() => {
+              const waitlistSection = document.getElementById("waitlist-section");
+              waitlistSection?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="px-8 py-4 text-base font-medium text-white transition-opacity hover:opacity-90"
             style={{
               borderRadius: "30px",
-              border: status === "error" ? "1px solid #FF2D92" : "1px solid #3BBCFF",
-              background: "#F2F3F7",
+              border: "1px solid #FFF",
+              background:
+                "radial-gradient(95.2% 97.67% at 7.09% 23.91%, #3BBCFF 0%, #936DFF 100%)",
             }}
           >
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email address"
-              className="w-full bg-transparent px-6 py-4 text-gray-900 placeholder-gray-500 outline-none"
-            />
-            <button
-              onClick={handleJoinWaitlist}
-              disabled={status === "loading"}
-              className="absolute right-2 my-2 px-6 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90 disabled:opacity-50"
-              style={{
-                borderRadius: "29px",
-                border: "1px solid #FFF",
-                background:
-                  "radial-gradient(95.2% 97.67% at 7.09% 23.91%, #3BBCFF 0%, #936DFF 100%)",
-              }}
-            >
-              {status === "loading" ? "..." : "Join waitlist"}
-            </button>
-          </div>
-          {message && (
-            <p className={`mt-2 text-sm ${status === "success" ? "text-green-600" : "text-red-600"}`}>
-              {message}
-            </p>
-          )}
+            Join waitlist
+          </button>
         </div>
 
         {/* 3D Perspective Carousel */}

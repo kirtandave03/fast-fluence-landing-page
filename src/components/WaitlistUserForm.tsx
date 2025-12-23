@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Toast from "./Toast";
 
 export default function WaitlistUserForm() {
   const [formData, setFormData] = useState({
@@ -10,12 +11,12 @@ export default function WaitlistUserForm() {
     industry: "",
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [message, setMessage] = useState("");
+  const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
-    setMessage("");
+    setToast(null);
 
     try {
       const response = await fetch("/api/waitlist", {
@@ -30,16 +31,16 @@ export default function WaitlistUserForm() {
 
       if (response.ok) {
         setStatus("success");
-        setMessage("Thank you! You've been added to the waitlist.");
+        setToast({ message: "Thank you! You've been added to the waitlist.", type: "success" });
         setFormData({ firstName: "", lastName: "", email: "", industry: "" });
       } else {
         setStatus("error");
-        setMessage(data.message || "Something went wrong. Please try again.");
+        setToast({ message: data.message || "Something went wrong. Please try again.", type: "error" });
       }
     } catch (error) {
       console.error("Submission error:", error);
       setStatus("error");
-      setMessage("Failed to connect to the server.");
+      setToast({ message: "Failed to connect to the server.", type: "error" });
     }
   };
 
@@ -51,19 +52,20 @@ export default function WaitlistUserForm() {
   };
 
   return (
-    <div className="relative mx-auto align-middle justify-center" style={{ maxWidth: "700px", width: "100%" }}>
+    <div className="relative mx-auto" style={{ maxWidth: "900px", width: "100%" }}>
       <div
         className="relative flex flex-col overflow-hidden"
         style={{
           width: "100%",
-          maxWidth: "700px",
+          maxWidth: "900px",
           minHeight: "450px",
           borderRadius: "20px",
-          borderTop: "1px solid #FFFFFF",
-          borderLeft: "1px solid #FFFFFF",
+          borderTop: "1px solid rgba(255, 255, 255, 0.79)",
+          borderLeft: "1px solid rgba(255, 255, 255, 0.79)",
           background:
             "linear-gradient(118deg, rgba(1, 72, 253, 0.08) 2.73%, rgba(1, 72, 253, 0.00) 100%), rgba(173, 173, 173, 0.06)",
           backdropFilter: "blur(16px)",
+          boxShadow: "0px 26px 30px 0px #D9D9D933",
         }}
       >
         {/* Gradient Background - Top Right */}
@@ -92,7 +94,7 @@ export default function WaitlistUserForm() {
 
         {/* Inner Box 1 - Padding Container */}
         <div
-          className="relative flex flex-col"
+          className="relative flex flex-col items-center"
           style={{
             width: "100%",
             height: "fit-content",
@@ -107,7 +109,7 @@ export default function WaitlistUserForm() {
           <div
             className="flex flex-col"
             style={{
-              width: "100%",
+              width: "70%",
               height: "fit-content",
               borderRadius: "15px",
               gap: "8px",
@@ -122,7 +124,7 @@ export default function WaitlistUserForm() {
                 fontSize: "28px",
                 fontWeight: 600,
                 lineHeight: "124%",
-                letterSpacing: "1.5px",
+                letterSpacing: "2px",
                 color: "#2D2D2D",
               }}
             >
@@ -138,7 +140,7 @@ export default function WaitlistUserForm() {
                   fontSize: "28px",
                   fontWeight: 800,
                   lineHeight: "124%",
-                  letterSpacing: "1.5px",
+                  letterSpacing: "2px",
                 }}
               >
                 Best and quickest UGC platform
@@ -215,12 +217,12 @@ export default function WaitlistUserForm() {
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className={`mx-auto w-fit px-12 py-2.5 font-bold text-white transition-all cursor-pointer hover:opacity-90 active:scale-[0.98] ${
-                    status === "loading" ? "opacity-70 cursor-not-allowed" : ""
-                  }`}
+                  className={`mx-auto w-fit px-8 py-4 text-base font-medium text-white transition-all cursor-pointer hover:opacity-90 active:scale-[0.98] ${status === "loading" ? "opacity-70 cursor-not-allowed" : ""
+                    }`}
                   style={{
-                    borderRadius: "20px",
+                    borderRadius: "30px",
                     border: "1px solid #FFF",
+                    letterSpacing: "2%",
                     background:
                       "radial-gradient(95.2% 97.67% at 7.09% 23.91%, #3BBCFF 0%, #936DFF 100%)",
                   }}
@@ -229,17 +231,6 @@ export default function WaitlistUserForm() {
                 </button>
               </div>
             </form>
-
-            {/* Status Message */}
-            {message && (
-              <p
-                className={`text-center mb-2 text-sm font-medium ${
-                  status === "success" ? "text-green-600" : "text-red-600"
-                }`}
-              >
-                {message}
-              </p>
-            )}
 
             {/* Instructional Text */}
             <p
@@ -258,9 +249,9 @@ export default function WaitlistUserForm() {
             </p>
 
             {/* Benefits List */}
-            <div className="flex flex-wrap justify-center gap-6 text-sm">
+            <div className="flex flex-wrap justify-center gap-[20px] text-sm">
               <div
-                className="flex items-center gap-2"
+                className="flex items-center gap-1"
                 style={{
                   fontFamily: "var(--font-sora), sans-serif",
                   color: "#2D2D2D",
@@ -270,7 +261,7 @@ export default function WaitlistUserForm() {
                 <span>Priority download access</span>
               </div>
               <div
-                className="flex items-center gap-2"
+                className="flex items-center gap-1"
                 style={{
                   fontFamily: "var(--font-sora), sans-serif",
                   color: "#2D2D2D",
@@ -280,7 +271,7 @@ export default function WaitlistUserForm() {
                 <span>Get update when we are live</span>
               </div>
               <div
-                className="flex items-center gap-2"
+                className="flex items-center gap-1"
                 style={{
                   fontFamily: "var(--font-sora), sans-serif",
                   color: "#2D2D2D",
@@ -293,6 +284,13 @@ export default function WaitlistUserForm() {
           </div>
         </div>
       </div>
+      {toast && (
+        <Toast
+          message={toast.message}
+          type={toast.type}
+          onClose={() => setToast(null)}
+        />
+      )}
     </div>
   );
 }
