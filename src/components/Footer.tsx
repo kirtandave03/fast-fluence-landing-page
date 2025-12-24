@@ -5,11 +5,11 @@ import WaitlistUserForm from "./WaitlistUserForm";
 
 export default function Footer() {
     return (
-        <footer id="waitlist-section" className="bg-white py-8 sm:py-8 md:py-8">
+        <footer id="waitlist-section" className="bg-white py-8 sm:py-8 md:py-8 w-full">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 {/* Waitlist Form */}
                 <div
-                    className="mb-12 mx-auto w-full max-w-[900px] relative"
+                    className="mb-12 mx-auto w-full max-w-[1024px] relative"
                     style={{
                         borderRadius: "20px",
                         overflow: "hidden",

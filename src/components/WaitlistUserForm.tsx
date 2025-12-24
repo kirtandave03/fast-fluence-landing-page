@@ -52,7 +52,7 @@ export default function WaitlistUserForm() {
   };
 
   return (
-    <div className="relative mx-auto" style={{ maxWidth: "900px", width: "100%" }}>
+    <div className="relative mx-auto" style={{ maxWidth: "1024px", width: "100%" }}>
       <div
         className="relative flex flex-col overflow-hidden"
         style={{
