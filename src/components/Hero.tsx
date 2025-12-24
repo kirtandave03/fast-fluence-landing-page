@@ -98,44 +98,42 @@ export default function Hero() {
   };
 
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen overflow-hidden px-4 py-20 sm:px-6 lg:px-8"
-    >
-      {/* Half Ellipse Background */}
-      <div
-        className="absolute left-0 top-0 h-[571px] w-[571px] -translate-x-1/2 -translate-y-1/2"
-        style={{
-          borderRadius: "571px",
-          background:
-            "radial-gradient(95.2% 97.67% at 7.09% 23.91%, rgba(59, 188, 255, 0.20) 0%, rgba(147, 109, 255, 0.20) 100%)",
-          filter: "blur(100px)",
-        }}
-      />
+    <section id="hero" className="relative min-h-screen overflow-hidden py-20">
+      <div className="px-4 sm:px-6 lg:px-8">
+        {/* Half Ellipse Background */}
+        <div
+          className="absolute left-0 top-0 h-[571px] w-[571px] -translate-x-1/2 -translate-y-1/2"
+          style={{
+            borderRadius: "571px",
+            background:
+              "radial-gradient(95.2% 97.67% at 7.09% 23.91%, rgba(59, 188, 255, 0.20) 0%, rgba(147, 109, 255, 0.20) 100%)",
+            filter: "blur(100px)",
+          }}
+        />
 
-      <div className="relative mx-auto max-w-7xl">
-        {/* Heading and Subheading */}
-        <div className="mb-12 text-center">
-          <h1 className="mb-4 text-4xl font-bold leading-tight text-gray-900 sm:text-5xl md:text-6xl lg:text-7xl">
-            Create{" "}
-            <span
-              className="bg-clip-text text-transparent"
-              style={{
-                background:
-                  "linear-gradient(94deg, #3BBCFF -3.9%, #936DFF 113.55%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              UGC Ads in Minutes
-            </span>{" "}
-            Not Weeks.
-          </h1>
-          <p className="mx-auto max-w-2xl text-lg text-gray-600 sm:text-xl">
-            AI avatars, localized voices, and guided scripts help you launch
-            authentic short-form ads at a fraction of the cost.
-          </p>
-        </div>
+        <div className="relative mx-auto max-w-7xl">
+          {/* Heading and Subheading */}
+          <div className="mb-12 text-center">
+            <h1 className="mb-4 text-4xl font-bold leading-tight text-gray-900 sm:text-5xl md:text-6xl lg:text-7xl">
+              Create{" "}
+              <span
+                className="bg-clip-text text-transparent"
+                style={{
+                  background:
+                    "linear-gradient(94deg, #3BBCFF -3.9%, #936DFF 113.55%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                UGC Ads in Minutes
+              </span>{" "}
+              Not Weeks.
+            </h1>
+            <p className="mx-auto max-w-2xl text-lg text-gray-600 sm:text-xl">
+              AI avatars, localized voices, and guided scripts help you launch
+              authentic short-form ads at a fraction of the cost.
+            </p>
+          </div>
 
         {/* Join Waitlist Button */}
         <div className="mb-8 flex flex-col items-center justify-center">
@@ -156,8 +154,8 @@ export default function Hero() {
           </button>
         </div>
 
-        {/* 3D Perspective Carousel */}
-        <div className="relative overflow-visible py-12">
+          {/* 3D Perspective Carousel */}
+          {/* <div className="relative overflow-visible py-12">
           <div
             ref={containerRef}
             className="flex items-end overflow-x-auto overflow-y-hidden scrollbar-hide"
@@ -207,6 +205,42 @@ export default function Hero() {
               </div>
             ))}
           </div>
+        </div> */}
+        </div>
+      </div>
+      {/* Hero Image Carousel */}
+      {/* <div className="relative mx-auto max-w-7xl overflow-hidden py-12">
+        <div className="flex items-center justify-start overflow-x-auto px-4 scrollbar-hide pb-4">
+          {carouselImages.slice(0, 6).map((image, index) => (
+            <div
+              key={index}
+              className="relative shrink-0 w-[280px] h-[320px] rounded-2xl overflow-hidden shadow-xl"
+              style={{
+                marginLeft: index > 0 ? "-20px" : "0",
+                zIndex: carouselImages.length - index,
+              }}
+            >
+              <Image
+                src={image}
+                alt={`UGC ad ${index + 1}`}
+                fill
+                className="object-cover"
+              />
+            </div>
+          ))}
+        </div>
+      </div> */}
+
+      {/* Hero Image */}
+      <div className="relative mx-auto w-full overflow-hidden">
+        <div className="flex items-center justify-center">
+          <Image
+            src="/images/hero.png"
+            alt="Hero Image"
+            width={1200}
+            height={600}
+            className="w-full h-auto object-contain"
+          />
         </div>
       </div>
 

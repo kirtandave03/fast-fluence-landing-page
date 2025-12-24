@@ -44,21 +44,20 @@ export default function Comparison() {
 
       <div className="relative mx-auto max-w-7xl">
         <div className="mb-20 text-center">
-          <h2 className="mb-4 text-4xl font-bold tracking-tight text-[#111827] sm:text-5xl">
-            Save your{" "}
-            <span
-              className="bg-clip-text text-transparent"
-              style={{
-                background:
-                  "linear-gradient(94deg, #3BBCFF -3.9%, #936DFF 113.55%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              precious time and money
-            </span>
+          <h2
+            className="mb-4 text-4xl font-bold tracking-tight bg-clip-text text-transparent sm:text-5xl"
+            style={{
+              background:
+                "var(--gradient-12, linear-gradient(94deg, #3BBCFF -3.9%, #936DFF 113.55%))",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            Save your precious time and money
           </h2>
-          <p className="text-gray-500">Using this is no rocket science</p>
+          <p className="text-black font-normal">
+            Using this is no rocket science
+          </p>
         </div>
 
         {/* Traditional Workflow */}
@@ -74,14 +73,19 @@ export default function Comparison() {
                   className="relative flex flex-1 items-center"
                 >
                   <div className={stepBoxClasses}>
-                    <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-blue-200 text-sm font-medium text-blue-500">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-blue-200 text-sm font-medium text-blue-500">
                       {step.id}
                     </div>
-                    <div>
-                      <p className="text-sm font-semibold text-gray-900 leading-tight">
+                    <div className="flex flex-col gap-1">
+                      <p
+                        className="text-sm font-normal text-black leading-tight"
+                        style={{
+                          fontFamily: "var(--font-inter)",
+                        }}
+                      >
                         {step.title}
                       </p>
-                      <p className="text-xs text-gray-500">{step.duration}</p>
+                      <p className="text-xs text-black">{step.duration}</p>
                     </div>
                   </div>
                   {/* Arrow for Desktop */}
@@ -108,34 +112,78 @@ export default function Comparison() {
             </div>
 
             {/* Transition Arrow */}
-            <div className="flex flex-shrink-0 items-center justify-center py-4 lg:px-2 lg:py-0">
+            <div className="flex shrink-0 items-center justify-center py-4 lg:px-2 lg:py-0">
               <Image
                 src="/assets/arrow-right.svg"
                 alt="Transition"
                 width={24}
                 height={24}
-                className="rotate-90 lg:rotate-0 flex-shrink-0"
+                className="rotate-90 lg:rotate-0 shrink-0"
               />
             </div>
 
             {/* Traditional Summary */}
-            <div className="flex w-full max-w-[300px] h-[100px] items-center rounded-2xl border-2 border-[#FFDADA] p-6 bg-white shadow-sm">
-              <div className="w-full space-y-1">
-                <div className="flex justify-between items-center text-xs">
-                  <span className="text-[#FF5C5C] font-medium">
-                    Total Time:
-                  </span>
-                  <span className="text-[#FF5C5C] font-semibold">
-                    2-3 weeks
-                  </span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-[#FF5C5C] font-medium text-sm">
-                    Total Cost:
-                  </span>
-                  <span className="text-[#FF5C5C] font-bold text-lg">
-                    $ 300-500
-                  </span>
+            <div
+              className="flex w-full max-w-[300px] h-[100px] items-center rounded-2xl p-[2px] shadow-sm"
+              style={{
+                background:
+                  "linear-gradient(92deg, #FF2D92 6.52%, #F53F43 74.23%, #FD832C 102.13%)",
+              }}
+            >
+              <div className="flex w-full h-full items-center rounded-2xl bg-white p-6">
+                <div className="w-full space-y-1">
+                  <div className="flex justify-between items-center text-xs">
+                    <span
+                      className="font-normal text-base bg-clip-text text-transparent"
+                      style={{
+                        fontFamily: "var(--font-inter)",
+                        background:
+                          "linear-gradient(92deg, #FF2D92 6.52%, #F53F43 74.23%, #FD832C 102.13%)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                      }}
+                    >
+                      Total Time:
+                    </span>
+                    <span
+                      className="font-normal bg-clip-text text-base text-transparent"
+                      style={{
+                        fontFamily: "var(--font-inter)",
+                        background:
+                          "linear-gradient(92deg, #FF2D92 6.52%, #F53F43 74.23%, #FD832C 102.13%)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                      }}
+                    >
+                      2-3 weeks
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span
+                      className="font-normal text-base bg-clip-text text-transparent"
+                      style={{
+                        fontFamily: "var(--font-inter)",
+                        background:
+                          "linear-gradient(92deg, #FF2D92 6.52%, #F53F43 74.23%, #FD832C 102.13%)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                      }}
+                    >
+                      Total Cost:
+                    </span>
+                    <span
+                      className="font-normal text-base bg-clip-text text-transparent"
+                      style={{
+                        fontFamily: "var(--font-inter)",
+                        background:
+                          "linear-gradient(92deg, #FF2D92 6.52%, #F53F43 74.23%, #FD832C 102.13%)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                      }}
+                    >
+                      <span className="font-normal text-lg">$</span> 300-500
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -155,14 +203,19 @@ export default function Comparison() {
                   className="relative flex flex-1 items-center"
                 >
                   <div className={stepBoxClasses}>
-                    <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-blue-200 text-sm font-medium text-blue-500">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-blue-200 text-sm font-medium text-blue-500">
                       {step.id}
                     </div>
-                    <div>
-                      <p className="text-sm font-semibold text-gray-900 leading-tight">
+                    <div className="flex flex-col gap-1">
+                      <p
+                        className="text-sm font-normal text-black leading-tight"
+                        style={{
+                          fontFamily: "var(--font-inter)",
+                        }}
+                      >
                         {step.title}
                       </p>
-                      <p className="text-xs text-gray-500">{step.duration}</p>
+                      <p className="text-xs text-black">{step.duration}</p>
                     </div>
                   </div>
                   {/* Arrow for Desktop */}
@@ -189,31 +242,33 @@ export default function Comparison() {
             </div>
 
             {/* Transition Arrow */}
-            <div className="flex flex-shrink-0 items-center justify-center py-4 lg:px-2 lg:py-0">
+            <div className="flex shrink-0 items-center justify-center py-4 lg:px-2 lg:py-0">
               <Image
                 src="/assets/arrow-right.svg"
                 alt="Transition"
                 width={24}
                 height={24}
-                className="rotate-90 lg:rotate-0 flex-shrink-0"
+                className="rotate-90 lg:rotate-0 shrink-0"
               />
             </div>
 
             {/* Fast Summary */}
             <div
-              className="flex w-full max-w-[300px] h-[100px] items-center rounded-2xl p-6 text-white shadow-xl shadow-blue-200/50"
+              className="flex w-full max-w-[300px] h-[100px] items-center rounded-2xl p-6 text-black shadow-xl shadow-blue-200/50"
               style={{
                 background: "linear-gradient(135deg, #3BBCFF 0%, #936DFF 100%)",
+                fontFamily: "var(--font-inter)",
+                boxShadow: "0 16px 40.8px 0 rgba(101, 150, 255, 0.54)",
               }}
             >
-              <div className="w-full space-y-1">
+              <div className="w-full space-y-1 ">
                 <div className="flex justify-between items-center text-xs opacity-90">
-                  <span className="font-medium">Total Time:</span>
-                  <span className="font-semibold">3 minutes</span>
+                  <span className="font-normal text-base">Total Time:</span>
+                  <span className="font-normal text-base">3 minutes</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="font-medium text-sm">Total Cost:</span>
-                  <span className="font-bold text-xl">$ 15-30</span>
+                  <span className="font-normal text-base">Total Cost:</span>
+                  <span className="font-medium text-base">$ 15-30</span>
                 </div>
               </div>
             </div>
