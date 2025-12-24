@@ -87,10 +87,13 @@ export default function Navbar() {
               }}
               className="px-6 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
               style={{
+                fontWeight: 700,
+                fontFamily: "var(--font-sora)",
+                letterSpacing: "2%",
                 borderRadius: "30px",
                 border: "1px solid #FFF",
                 background:
-                  "radial-gradient(95.2% 97.67% at 7.09% 23.91%, #3BBCFF 0%, #936DFF 100%)",
+                  "radial-gradient(76.09% 76.09% at 7.09% 23.91%, #3BBCFF 0%, #936DFF 100%)",
               }}
             >
               Join Waitlist
@@ -104,19 +107,16 @@ export default function Navbar() {
             aria-label="Toggle menu"
           >
             <span
-              className={`h-0.5 w-6 bg-gray-900 transition-all ${
-                isMenuOpen ? "translate-y-2 rotate-45" : ""
-              }`}
+              className={`h-0.5 w-6 bg-gray-900 transition-all ${isMenuOpen ? "translate-y-2 rotate-45" : ""
+                }`}
             />
             <span
-              className={`h-0.5 w-6 bg-gray-900 transition-all ${
-                isMenuOpen ? "opacity-0" : ""
-              }`}
+              className={`h-0.5 w-6 bg-gray-900 transition-all ${isMenuOpen ? "opacity-0" : ""
+                }`}
             />
             <span
-              className={`h-0.5 w-6 bg-gray-900 transition-all ${
-                isMenuOpen ? "-translate-y-2 -rotate-45" : ""
-              }`}
+              className={`h-0.5 w-6 bg-gray-900 transition-all ${isMenuOpen ? "-translate-y-2 -rotate-45" : ""
+                }`}
             />
           </button>
         </div>

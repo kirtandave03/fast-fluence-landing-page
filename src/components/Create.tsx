@@ -33,6 +33,15 @@ export default function Create() {
     <section className="relative py-24 px-4 sm:px-6 lg:px-8">
       <div className="relative mx-auto max-w-7xl">
         {/* Title */}
+        <div
+          className="absolute left-[-200px] top-[300px] h-[571px] w-[571px] -translate-x-1 -translate-y-1 "
+          style={{
+            borderRadius: "571px",
+            background:
+              "radial-gradient(95.2% 97.67% at 7.09% 23.91%, rgba(59, 188, 255, 0.20) 0%, rgba(147, 109, 255, 0.20) 100%)",
+            filter: "blur(116px)",
+          }}
+        />
         <div className="mb-12 text-center">
           <h2 className="mb-4 text-4xl font-bold tracking-tight text-[#111827] sm:text-5xl">
             See what you can{" "}
@@ -94,6 +103,15 @@ export default function Create() {
             ))}
           </div>
         </div>
+        <div
+          className="absolute right-[-200px] top-[971px] h-[571px] w-[571px] -translate-x-1 -translate-y-1 "
+          style={{
+            borderRadius: "571px",
+            background:
+              "radial-gradient(70.9% 70.9% at 27.66% 27.09%, rgba(255, 45, 146, 0.1) 0%, rgba(245, 63, 67, 0.1) 71.35%, rgba(253, 131, 44, 0.1) 100%)",
+            filter: "blur(116px)",
+          }}
+        />
       </div>
     </section>
   );

@@ -47,22 +47,39 @@ export default function Comparison() {
           <h2
             className="mb-4 text-4xl font-bold tracking-tight bg-clip-text text-transparent sm:text-5xl"
             style={{
+              fontFamily: "var(--font-sora)",
+              fontWeight: 600,
+              letterSpacing: "2px",
               background:
-                "var(--gradient-12, linear-gradient(94deg, #3BBCFF -3.9%, #936DFF 113.55%))",
+                "var(--gradient-12, linear-gradient(94.18deg, #3BBCFF -3.9%, #936DFF 113.55%))",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}
           >
             Save your precious time and money
           </h2>
-          <p className="text-black font-normal">
+          <p className="text-black font-normal" style={{
+            fontFamily: "var(--font-inter)",
+            fontWeight: 400,
+            fontSize: "16px",
+            lineHeight: "22px",
+            letterSpacing: "0%",
+            color: "#2D2D2D",
+          }}>
             Using this is no rocket science
           </p>
         </div>
 
         {/* Traditional Workflow */}
         <div className="mb-24">
-          <h3 className="mb-8 text-lg font-medium text-gray-700">
+          <h3 className="mb-8 text-lg font-medium text-gray-700" style={{
+            fontFamily: "var(--font-inter)",
+            fontWeight: 400,
+            fontSize: "18px",
+            lineHeight: "24px",
+            letterSpacing: "0%",
+            color: "#2D2D2D",
+          }}>
             Traditional UGC Workflow
           </h3>
           <div className="flex flex-col items-center gap-4 lg:flex-row lg:items-center lg:gap-0">
@@ -81,11 +98,23 @@ export default function Comparison() {
                         className="text-sm font-normal text-black leading-tight"
                         style={{
                           fontFamily: "var(--font-inter)",
+                          fontWeight: 400,
+                          fontSize: "16px",
+                          lineHeight: "22px",
+                          letterSpacing: "0%",
+                          color: "#2D2D2D",
                         }}
                       >
                         {step.title}
                       </p>
-                      <p className="text-xs text-black">{step.duration}</p>
+                      <p className="text-xs text-black" style={{
+                        fontFamily: "var(--font-inter)",
+                        fontWeight: 400,
+                        fontSize: "14px",
+                        lineHeight: "22px",
+                        letterSpacing: "-2%",
+                        color: "#2D2D2D",
+                      }}>{step.duration}</p>
                     </div>
                   </div>
                   {/* Arrow for Desktop */}

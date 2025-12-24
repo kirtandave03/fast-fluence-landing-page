@@ -114,13 +114,18 @@ export default function Hero() {
         <div className="relative mx-auto max-w-7xl">
           {/* Heading and Subheading */}
           <div className="mb-12 text-center">
-            <h1 className="mb-4 text-4xl font-bold leading-tight text-gray-900 sm:text-5xl md:text-6xl lg:text-7xl">
+            <h1 className="mb-4 text-4xl font-bold leading-tight text-gray-900 sm:text-5xl md:text-6xl lg:text-7xl"
+              style={{
+                fontFamily: "var(--font-sora)",
+                letterSpacing: "9px",
+              }}
+            >
               Create{" "}
               <span
                 className="bg-clip-text text-transparent"
                 style={{
                   background:
-                    "linear-gradient(94deg, #3BBCFF -3.9%, #936DFF 113.55%)",
+                    "radial-gradient(76.09% 76.09% at 7.09% 23.91%, #3BBCFF 0%, #936DFF 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                 }}
@@ -129,30 +134,36 @@ export default function Hero() {
               </span>{" "}
               Not Weeks.
             </h1>
-            <p className="mx-auto max-w-2xl text-lg text-gray-600 sm:text-xl">
+            <p className="mx-auto max-w-2xl text-lg text-gray-600 sm:text-xl"
+              style={{
+                fontFamily: "var(--font-inter)",
+                letterSpacing: "0px",
+              }}>
               AI avatars, localized voices, and guided scripts help you launch
               authentic short-form ads at a fraction of the cost.
             </p>
           </div>
 
-        {/* Join Waitlist Button */}
-        <div className="mb-8 flex flex-col items-center justify-center">
-          <button
-            onClick={() => {
-              const waitlistSection = document.getElementById("waitlist-section");
-              waitlistSection?.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="px-8 py-4 text-base font-medium text-white transition-opacity hover:opacity-90"
-            style={{
-              borderRadius: "30px",
-              border: "1px solid #FFF",
-              background:
-                "radial-gradient(95.2% 97.67% at 7.09% 23.91%, #3BBCFF 0%, #936DFF 100%)",
-            }}
-          >
-            Join waitlist
-          </button>
-        </div>
+          {/* Join Waitlist Button */}
+          <div className="mb-8 flex flex-col items-center justify-center">
+            <button
+              onClick={() => {
+                const waitlistSection = document.getElementById("waitlist-section");
+                waitlistSection?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="px-8 py-4 text-base font-medium text-white transition-opacity hover:opacity-90"
+              style={{
+                borderRadius: "30px",
+                fontFamily: "var(--font-sora)",
+                letterSpacing: "2%",
+                border: "1px solid #FFF",
+                background:
+                  "radial-gradient(76.09% 76.09% at 7.09% 23.91%, #3BBCFF 0%, #936DFF 100%)",
+              }}
+            >
+              Join waitlist
+            </button>
+          </div>
 
           {/* 3D Perspective Carousel */}
           {/* <div className="relative overflow-visible py-12">

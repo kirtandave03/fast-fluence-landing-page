@@ -7,8 +7,8 @@ export default function MoreUseCases() {
             icon: "/whositfor/retail.svg",
             examples: [
                 "Product launches",
-                "Seasonal promotions",
-                "Customer testimonials",
+                "seasonal promotions",
+                "customer testimonials",
             ],
         },
         {
@@ -16,8 +16,8 @@ export default function MoreUseCases() {
             icon: "/whositfor/food.svg",
             examples: [
                 "Menu highlights",
-                "Special offers",
-                "Location promotions",
+                "special offers",
+                "location promotions",
             ],
         },
         {
@@ -25,17 +25,17 @@ export default function MoreUseCases() {
             icon: "/whositfor/education.svg",
             examples: [
                 "Course promotions",
-                "Student success stories",
-                "Enrollment drives",
+                "student success stories",
+                "enrollment drives",
             ],
         },
         {
             title: "Healthcare",
             icon: "/whositfor/health.svg",
             examples: [
-                "Service explanations",
-                "Appointment reminders",
-                "Wellness tips",
+                "service explanations",
+                "appointment reminders",
+                "wellness tips",
             ],
         },
     ];
@@ -96,6 +96,7 @@ export default function MoreUseCases() {
 
                                 {/* Description */}
                                 <p
+                                    className="w-[90%] mr-auto"
                                     style={{
                                         fontFamily: "var(--font-inter), sans-serif",
                                         fontWeight: 300,

@@ -120,7 +120,7 @@ export default function WaitlistUserForm() {
             <h2
               className="mb-1 text-center"
               style={{
-                fontFamily: "var(--font-sora), sans-serif",
+                fontFamily: "var(--font-sora)",
                 fontSize: "28px",
                 fontWeight: 600,
                 lineHeight: "124%",
@@ -136,11 +136,11 @@ export default function WaitlistUserForm() {
                   backgroundClip: "text",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
-                  fontFamily: "var(--font-sora), sans-serif",
+                  fontFamily: "var(--font-sora)",
                   fontSize: "28px",
                   fontWeight: 800,
                   lineHeight: "124%",
-                  letterSpacing: "2px",
+                  letterSpacing: "1px",
                 }}
               >
                 Best and quickest UGC platform

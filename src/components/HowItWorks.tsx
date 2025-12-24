@@ -52,13 +52,18 @@ export default function HowItWorks() {
 
       <div className="relative mx-auto max-w-7xl">
         <div className="mb-16 text-center">
-          <h2 className="text-4xl font-bold tracking-tight text-[#111827] sm:text-5xl md:text-6xl">
+          <h2 className="text-4xl tracking-tight text-[#111827] sm:text-5xl md:text-6xl"
+            style={{
+              fontFamily: "var(--font-sora)",
+              fontWeight: 600,
+            }}>
             Create{" "}
             <span
               className="bg-clip-text text-transparent"
               style={{
+                fontFamily: "var(--font-sora)",
                 background:
-                  "linear-gradient(94deg, #3BBCFF -3.9%, #936DFF 113.55%)",
+                  "linear-gradient(94.18deg, #3BBCFF -3.9%, #936DFF 113.55%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
               }}
@@ -88,10 +93,18 @@ export default function HowItWorks() {
                 />
               </div>
               <div className="flex flex-col">
-                <h3 className="mb-3 text-xl font-bold text-[#111827]">
+                <h3 className="mb-3 text-xl font-bold text-[#111827]"
+                  style={{
+                    fontFamily: "var(--font-sora)",
+                    fontWeight: 600,
+                  }}>
                   {step.title}
                 </h3>
-                <p className="text-base leading-relaxed text-[#4B5563]">
+                <p className="text-base leading-relaxed text-[#4B5563] w-[90%] mr-auto"
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontWeight: 300,
+                  }}>
                   {step.description}
                 </p>
               </div>
