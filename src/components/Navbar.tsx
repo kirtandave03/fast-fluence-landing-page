@@ -2,10 +2,20 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
     { label: "How it works", href: "#how-it-works" },
@@ -28,11 +38,18 @@ export default function Navbar() {
 
   return (
     <nav
-      className="w-full px-4 sm:px-6 lg:px-8"
+      className="fixed top-0 left-0 right-0 z-50 w-full px-4 sm:px-6 lg:px-8 transition-all duration-300"
       style={{
-        background:
-          "linear-gradient(180deg, rgba(255, 255, 255, 0.40) -20.06%, rgba(255, 255, 255, 0.00) 186.86%)",
-        backdropFilter: "blur(30px)",
+        background: isScrolled
+          ? "linear-gradient(180deg, rgba(255, 255, 255, 0.70) -20.06%, rgba(255, 255, 255, 0.40) 186.86%)"
+          : "linear-gradient(180deg, rgba(255, 255, 255, 0.40) -20.06%, rgba(255, 255, 255, 0.00) 186.86%)",
+        backdropFilter: isScrolled ? "blur(40px)" : "blur(30px)",
+        borderBottom: isScrolled
+          ? "1px solid rgba(255, 255, 255, 0.2)"
+          : "1px solid transparent",
+        boxShadow: isScrolled
+          ? "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+          : "none",
       }}
     >
       <div className="mx-auto max-w-7xl">

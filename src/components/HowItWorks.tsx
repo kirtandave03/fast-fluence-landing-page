@@ -57,7 +57,8 @@ export default function HowItWorks() {
             <span
               className="bg-clip-text text-transparent"
               style={{
-                background: "linear-gradient(94deg, #3BBCFF -3.9%, #936DFF 113.55%)",
+                background:
+                  "linear-gradient(94deg, #3BBCFF -3.9%, #936DFF 113.55%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
               }}
@@ -73,12 +74,12 @@ export default function HowItWorks() {
           {steps.map((step) => (
             <div
               key={step.id}
-              className="group relative flex flex-col rounded-[32px] border border-[#E5E7EB] bg-white/50 p-6 transition-all hover:shadow-lg backdrop-blur-sm"
+              className="group relative flex flex-col rounded-[32px] border border-[#936DFF] bg-white/50 p-6 transition-all hover:shadow-lg backdrop-blur-sm"
               style={{
                 borderColor: "rgba(147, 109, 255, 0.2)",
               }}
             >
-              <div className="relative mb-8 aspect-[4/3] w-full overflow-hidden rounded-2xl bg-white">
+              <div className="relative mb-8 aspect-4/3 w-full overflow-hidden rounded-2xl bg-white">
                 <Image
                   src={step.image}
                   alt={step.title}
