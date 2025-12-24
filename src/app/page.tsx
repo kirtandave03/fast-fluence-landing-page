@@ -17,12 +17,12 @@ export default function Home() {
         <Hero />
         <HowItWorks />
         <Comparison />
-      <MoreUseCases/>
-      <FaqQuestions/>
-      <Footer />
         <WhyFastFluence />
         <Create />
         <WhosItFor />
+        <MoreUseCases />
+        <FaqQuestions />
+        <Footer />
       </div>
     </div>
   );
