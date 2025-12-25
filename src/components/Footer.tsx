@@ -2,8 +2,10 @@
 
 import Image from "next/image";
 import WaitlistUserForm from "./WaitlistUserForm";
+import { useRouter } from "next/navigation";
 
 export default function Footer() {
+  const router = useRouter();
   const socialMediaLinks = [
     {
       name: "Google",
@@ -30,11 +32,11 @@ export default function Footer() {
   return (
     <footer
       id="waitlist-section"
-      className="bg-white py-8 sm:py-8 md:py-8 w-full"
+      className="bg-white py-24 sm:py-24 md:py-24 w-full"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Waitlist Form */}
-        <div className="mb-12 flex w-full justify-center">
+        <div className="mb-24 flex w-full justify-center">
           <div
             className="relative"
             style={{
@@ -88,7 +90,10 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mb-14 flex items-center justify-center gap-6">
+        <div
+          className="mb-14 flex items-center justify-center gap-6 cursor-pointer"
+          onClick={() => router.push("/#ugc")}
+        >
           <Image
             src="/footer/Logo.png"
             alt="FastFluence Logo"

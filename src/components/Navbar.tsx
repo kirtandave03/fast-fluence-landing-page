@@ -2,9 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 
 export default function Navbar() {
+  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -54,16 +56,15 @@ export default function Navbar() {
           mounted && isScrolled
             ? "1px solid rgba(255, 255, 255, 0.2)"
             : "1px solid transparent",
-        boxShadow:
-          mounted && isScrolled
-            ? "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
-            : "none",
       }}
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-[1340px]">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-3">
+          <div
+            className="flex items-center gap-3 cursor-pointer"
+            onClick={() => router.push("/#ugc")}
+          >
             <Image
               src="/footer/Logo.png"
               alt="FastFluence Logo"
@@ -166,7 +167,6 @@ export default function Navbar() {
                 className="w-full px-6 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
                 style={{
                   borderRadius: "30px",
-                  border: "1px solid #FFF",
                   background:
                     "radial-gradient(95.2% 97.67% at 7.09% 23.91%, #3BBCFF 0%, #936DFF 100%)",
                 }}

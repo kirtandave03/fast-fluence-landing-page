@@ -19,7 +19,10 @@ export default function Comparison() {
     "flex w-full min-w-[200px] h-[88px] items-center gap-3 rounded-xl p-4 border-[#E5E7EB]";
 
   return (
-    <section className="relative py-24 px-4 sm:px-6 lg:px-8">
+    <section
+      className="relative pb-24 pt-48 px-4 sm:px-6 lg:px-8"
+      id="vs-traditional-ugc"
+    >
       {/* ... gradients ... */}
       <div
         className="absolute left-1/2 -top-64 h-[589px] w-[589px] -translate-x-1/2"
@@ -45,7 +48,7 @@ export default function Comparison() {
       <div className="relative mx-auto max-w-7xl">
         <div className="mb-20 text-center">
           <h2
-            className="mb-4 text-4xl font-bold tracking-tight bg-clip-text text-transparent sm:text-5xl"
+            className="mb-4 text-3xl font-bold tracking-tight bg-clip-text text-transparent sm:text-4xl"
             style={{
               fontFamily: "var(--font-sora)",
               fontWeight: 600,
@@ -123,7 +126,7 @@ export default function Comparison() {
                         style={{
                           fontFamily: "var(--font-inter)",
                           fontWeight: 400,
-                          fontSize: "16px",
+                          fontSize: "15px",
                           lineHeight: "22px",
                           letterSpacing: "0%",
                           color: "#2D2D2D",
@@ -295,11 +298,28 @@ export default function Comparison() {
                         className="text-sm font-normal text-black leading-tight"
                         style={{
                           fontFamily: "var(--font-inter)",
+                          fontWeight: 400,
+                          fontSize: "15px",
+                          lineHeight: "22px",
+                          letterSpacing: "0%",
+                          color: "#2D2D2D",
                         }}
                       >
                         {step.title}
                       </p>
-                      <p className="text-xs text-black">{step.duration}</p>
+                      <p
+                        className="text-xs text-black"
+                        style={{
+                          fontFamily: "var(--font-inter)",
+                          fontWeight: 400,
+                          fontSize: "14px",
+                          lineHeight: "22px",
+                          letterSpacing: "-2%",
+                          color: "#2D2D2D",
+                        }}
+                      >
+                        {step.duration}
+                      </p>
                     </div>
                   </div>
                   {/* Arrow for Desktop */}

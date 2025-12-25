@@ -53,12 +53,12 @@ export default function WhyFastFluence() {
   ];
 
   return (
-    <section className="relative py-24 px-4 sm:px-6 lg:px-8">
+    <section className="relative py-24 px-4 sm:px-6 lg:px-8" id="why">
       <div className="relative mx-auto max-w-7xl">
         {/* Title */}
         <div className="mb-14 text-center">
           <h2
-            className="mb-4 text-3xl tracking-tight text-[#111827] sm:text-4xl lg:text-5xl"
+            className="mb-4 text-3xl tracking-tight text-[#111827] sm:text-4xl lg:text-4xl"
             style={{
               fontFamily: "var(--font-sora)",
               fontWeight: 700,
@@ -139,7 +139,7 @@ export default function WhyFastFluence() {
                 </h3>
 
                 {/* Description */}
-                <p className="mb-4 text-base text-black leading-relaxed">
+                <p className="mb-4 text-base text-black leading-relaxed w-[90%]">
                   {feature.description}
                 </p>
 

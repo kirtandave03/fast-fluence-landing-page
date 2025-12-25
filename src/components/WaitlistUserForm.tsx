@@ -150,15 +150,15 @@ export default function WaitlistUserForm() {
             paddingLeft: "32px",
             paddingRight: "32px",
             gap: "10px",
-            paddingTop: "32px",
-            paddingBottom: "32px",
+            paddingTop: "75px",
+            paddingBottom: "75px",
           }}
         >
           {/* Inner Box 2 - Form Container */}
           <div
             className="flex flex-col"
             style={{
-              width: "70%",
+              width: "100%",
               height: "fit-content",
               borderRadius: "15px",
               gap: "8px",
@@ -170,7 +170,7 @@ export default function WaitlistUserForm() {
               className="mb-1 text-center"
               style={{
                 fontFamily: "var(--font-sora)",
-                fontSize: "28px",
+                fontSize: "40px",
                 fontWeight: 600,
                 lineHeight: "124%",
                 letterSpacing: "2px",
@@ -186,7 +186,7 @@ export default function WaitlistUserForm() {
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   fontFamily: "var(--font-sora)",
-                  fontSize: "28px",
+                  fontSize: "40px",
                   fontWeight: 800,
                   lineHeight: "124%",
                   letterSpacing: "1px",
@@ -212,7 +212,7 @@ export default function WaitlistUserForm() {
             </p>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="mb-3">
+            <form onSubmit={handleSubmit} className="mb-3 w-[70%] mx-auto">
               <div className="flex flex-col gap-4">
                 {/* Name Row */}
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -223,7 +223,7 @@ export default function WaitlistUserForm() {
                     onChange={handleChange}
                     placeholder="First name"
                     required
-                    className="w-full rounded-[20px] border border-[#E2E8F0] bg-white/80 px-5 py-3 text-gray-900 placeholder:text-black/90 placeholder:font-normal outline-none transition-all focus:border-[#3BBCFF] focus:ring-4 focus:ring-[#3BBCFF]/10"
+                    className="w-full rounded-[20px] border border-[#3BBCFF] bg-white/80 px-5 py-3 text-gray-900 placeholder:text-black/90 placeholder:font-normal outline-none transition-all focus:border-[#3BBCFF] focus:ring-4 focus:ring-[#3BBCFF]/10"
                     style={{ fontFamily: "var(--font-inter), sans-serif" }}
                   />
                   <input
@@ -233,7 +233,7 @@ export default function WaitlistUserForm() {
                     onChange={handleChange}
                     placeholder="Last name"
                     required
-                    className="w-full rounded-[20px] border border-[#E2E8F0] bg-white/80 px-5 py-3 text-gray-900 placeholder:text-black/90 placeholder:font-normal outline-none transition-all focus:border-[#3BBCFF] focus:ring-4 focus:ring-[#3BBCFF]/10"
+                    className="w-full rounded-[20px] border border-[#3BBCFF] bg-white/80 px-5 py-3 text-gray-900 placeholder:text-black/90 placeholder:font-normal outline-none transition-all focus:border-[#3BBCFF] focus:ring-4 focus:ring-[#3BBCFF]/10"
                     style={{ fontFamily: "var(--font-inter), sans-serif" }}
                   />
                 </div>
@@ -249,10 +249,10 @@ export default function WaitlistUserForm() {
                       onBlur={handleEmailBlur}
                       placeholder="Email address"
                       required
-                      className={`w-full rounded-[20px] border bg-white/80 px-5 py-3 text-gray-900 placeholder:text-black placeholder:font-normal outline-none transition-all focus:ring-4 focus:ring-[#3BBCFF]/10 ${
+                      className={`w-full rounded-[20px] border border-[#3BBCFF] bg-white/80 px-5 py-3 text-gray-900 placeholder:text-black placeholder:font-normal outline-none transition-all focus:ring-4 focus:ring-[#3BBCFF]/10 ${
                         emailError
                           ? "border-red-500 focus:border-red-500"
-                          : "border-[#E2E8F0] focus:border-[#3BBCFF]"
+                          : "border-[#3BBCFF] focus:border-[#3BBCFF]"
                       }`}
                       style={{ fontFamily: "var(--font-inter), sans-serif" }}
                     />
@@ -272,7 +272,7 @@ export default function WaitlistUserForm() {
                     onChange={handleChange}
                     placeholder="Industry / Profession"
                     required
-                    className="w-full rounded-[20px] border border-[#E2E8F0] bg-white/80 px-5 py-3 text-black outline-none transition-all focus:border-[#3BBCFF] focus:ring-4 focus:ring-[#3BBCFF]/10 self-start placeholder:text-black placeholder:font-normal"
+                    className="w-full rounded-[20px] border border-[#3BBCFF] bg-white/80 px-5 py-3 text-black outline-none transition-all focus:border-[#3BBCFF] focus:ring-4 focus:ring-[#3BBCFF]/10 self-start placeholder:text-black placeholder:font-normal"
                     style={{ fontFamily: "var(--font-inter), sans-serif" }}
                   />
                 </div>
@@ -290,9 +290,11 @@ export default function WaitlistUserForm() {
                     letterSpacing: "2%",
                     background:
                       "radial-gradient(95.2% 97.67% at 7.09% 23.91%, #3BBCFF 0%, #936DFF 100%)",
+                    fontFamily: "var(--font-sora)",
+                    fontWeight: 700,
                   }}
                 >
-                  {status === "loading" ? "Joining..." : "Join waitlist"}
+                  {status === "loading" ? "Joining..." : "Join Waitlist"}
                 </button>
               </div>
             </form>

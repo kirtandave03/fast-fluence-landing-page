@@ -59,7 +59,7 @@ export default function MoreUseCases() {
           More Use Cases
         </h2>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 items-center justify-center max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 items-center justify-center max-w-6xl mx-auto">
           {useCases.map((useCase, index) => {
             return (
               <div
@@ -67,7 +67,7 @@ export default function MoreUseCases() {
                 className="flex flex-col items-center h-[206px] justify-center overflow-hidden rounded-3xl bg-white px-6 py-8 shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-gray-100"
               >
                 {/* Icon circle */}
-                <div className="mb-4 flex h-38 w-38 items-center justify-center rounded-full">
+                <div className="mb-4 flex h-38 w-38 items-end justify-center rounded-full">
                   <Image
                     src={useCase.icon}
                     alt={useCase.title}
@@ -93,11 +93,11 @@ export default function MoreUseCases() {
 
                 {/* Description */}
                 <p
-                  className="w-[90%] mr-auto"
+                  className={`${index === 2 ? "w-[85%]" : "w-[86.8%]"}`}
                   style={{
                     fontFamily: "var(--font-inter), sans-serif",
                     fontWeight: 300,
-                    fontSize: "14px",
+                    fontSize: "12px",
                     lineHeight: "22px",
                     textAlign: "center",
                     color: "#6B7280",

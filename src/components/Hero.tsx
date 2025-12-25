@@ -98,7 +98,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen overflow-hidden py-20">
+    <section className="relative min-h-screen overflow-hidden py-20" id="ugc">
       <div className="px-4 sm:px-6 lg:px-8">
         {/* Half Ellipse Background */}
         <div
@@ -158,12 +158,13 @@ export default function Hero() {
                   document.getElementById("waitlist-section");
                 waitlistSection?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="px-8 py-4 text-base font-medium text-white transition-opacity hover:opacity-90"
+              className="px-8 py-4 text-base text-white transition-opacity hover:opacity-90"
               style={{
                 borderRadius: "30px",
                 fontFamily: "var(--font-sora)",
                 letterSpacing: "2%",
                 border: "1px solid #FFF",
+                fontWeight: 700,
                 background:
                   "radial-gradient(76.09% 76.09% at 7.09% 23.91%, #3BBCFF 0%, #936DFF 100%)",
               }}

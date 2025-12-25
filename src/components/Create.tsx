@@ -30,7 +30,7 @@ export default function Create() {
   ];
 
   return (
-    <section className="relative py-24 px-4 sm:px-6 lg:px-8">
+    <section className="relative py-24 px-4 sm:px-6 lg:px-8" id="use-cases">
       <div className="relative mx-auto max-w-7xl">
         {/* Title */}
         <div
@@ -65,7 +65,7 @@ export default function Create() {
               create
             </span>
           </h2>
-          <p className="text-black font-normal text-lg max-w-3xl mx-auto">
+          <p className="text-black font-normal text-lg max-w-2xl mx-auto">
             Experience how your user-generated content looks across different
             social media platforms with our interactive demo.
           </p>
