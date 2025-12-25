@@ -29,6 +29,13 @@ export default function Footer() {
     },
   ];
 
+  const handleLogoClick = () => {
+    const element = document.getElementById("ugc");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <footer
       id="waitlist-section"
@@ -92,7 +99,7 @@ export default function Footer() {
         </div>
         <div
           className="mb-14 flex items-center justify-center gap-6 cursor-pointer"
-          onClick={() => router.push("/#ugc")}
+          onClick={handleLogoClick}
         >
           <Image
             src="/footer/Logo.png"
