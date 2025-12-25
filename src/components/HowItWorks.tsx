@@ -51,12 +51,14 @@ export default function HowItWorks() {
       />
 
       <div className="relative mx-auto max-w-7xl">
-        <div className="mb-16 text-center">
-          <h2 className="text-4xl tracking-tight text-[#111827] sm:text-5xl md:text-6xl"
+        <div className="mb-14 text-center">
+          <h2
+            className="text-3xl tracking-tight text-[#111827] sm:text-4xl md:text-5xl lg:text-5xl md:max-w-5xl mx-auto"
             style={{
               fontFamily: "var(--font-sora)",
               fontWeight: 600,
-            }}>
+            }}
+          >
             Create{" "}
             <span
               className="bg-clip-text text-transparent"
@@ -79,12 +81,9 @@ export default function HowItWorks() {
           {steps.map((step) => (
             <div
               key={step.id}
-              className="group relative flex flex-col rounded-[32px] border border-[#936DFF] bg-white/50 p-6 transition-all hover:shadow-lg backdrop-blur-sm"
-              style={{
-                borderColor: "rgba(147, 109, 255, 0.2)",
-              }}
+              className="group relative flex flex-col rounded-[32px] border border-[#936DFF] p-8 transition-all hover:shadow-lg z-10 bg-white/75"
             >
-              <div className="relative mb-8 aspect-4/3 w-full overflow-hidden rounded-2xl bg-white">
+              <div className="relative mb-6 aspect-4/2 w-full overflow-hidden rounded-2xl bg-white">
                 <Image
                   src={step.image}
                   alt={step.title}
@@ -93,18 +92,22 @@ export default function HowItWorks() {
                 />
               </div>
               <div className="flex flex-col">
-                <h3 className="mb-3 text-xl font-bold text-[#111827]"
+                <h3
+                  className="mb-3 text-xl font-bold text-black"
                   style={{
                     fontFamily: "var(--font-sora)",
                     fontWeight: 600,
-                  }}>
+                  }}
+                >
                   {step.title}
                 </h3>
-                <p className="text-base leading-relaxed text-[#4B5563] w-[90%] mr-auto"
+                <p
+                  className="text-base leading-relaxed text-black opacity-80 w-[90%] mr-auto"
                   style={{
                     fontFamily: "var(--font-inter)",
                     fontWeight: 300,
-                  }}>
+                  }}
+                >
                   {step.description}
                 </p>
               </div>

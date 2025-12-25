@@ -47,7 +47,7 @@ const faqData = [
 export default function FaqQuestions() {
   return (
     <section className="relative w-full py-24 px-4 sm:px-6 lg:px-8 bg-white">
-      <div className="relative mx-auto max-w-5xl">
+      <div className="relative mx-auto max-w-4xl">
         {/* Title */}
         <h2
           className="text-center mb-4"
@@ -83,11 +83,11 @@ export default function FaqQuestions() {
         </p>
 
         {/* FAQ Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 justify-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
           {faqData.map((faq, index) => (
             <div
               key={index}
-              className="flex gap-3 p-4 bg-[#FCFCFC]"
+              className="flex gap-3 p-4 bg-white"
               style={{
                 width: "100%",
                 maxWidth: "432px",
@@ -95,7 +95,7 @@ export default function FaqQuestions() {
                 height: "144px",
                 borderRadius: "8px",
                 border: "0px solid rgb(255, 255, 255)",
-                boxShadow: "0px 26px 30px 0px #D9D9D933",
+                boxShadow: "0 26px 30px 0 rgba(217, 217, 217, 0.20)",
               }}
             >
               {/* Question and Answer */}
@@ -122,7 +122,8 @@ export default function FaqQuestions() {
                     {faq.question}
                   </h3>
                 </div>
-                <p className="w-[90%] mr-auto"
+                <p
+                  className="w-[90%] mr-auto"
                   style={{
                     fontFamily: "var(--font-inter), sans-serif",
                     fontWeight: 350,
@@ -130,7 +131,6 @@ export default function FaqQuestions() {
                     lineHeight: "22px",
                     letterSpacing: "-2%",
                     color: "#1B263B",
-
                   }}
                 >
                   {faq.answer}

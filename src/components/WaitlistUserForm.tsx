@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Toast from "./Toast";
+import Image from "next/image";
 
 export default function WaitlistUserForm() {
   const [formData, setFormData] = useState({
@@ -10,13 +11,27 @@ export default function WaitlistUserForm() {
     email: "",
     industry: "",
   });
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [toast, setToast] = useState<{ message: string; type: "success" | "error" } | null>(null);
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+  const [toast, setToast] = useState<{
+    message: string;
+    type: "success" | "error";
+  } | null>(null);
+  const [emailError, setEmailError] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validate email before submission
+    if (!validateEmail(formData.email)) {
+      setEmailError("Please enter a valid email address");
+      return;
+    }
+
     setStatus("loading");
     setToast(null);
+    setEmailError("");
 
     try {
       const response = await fetch("/api/waitlist", {
@@ -31,11 +46,18 @@ export default function WaitlistUserForm() {
 
       if (response.ok) {
         setStatus("success");
-        setToast({ message: "Thank you! You've been added to the waitlist.", type: "success" });
+        setToast({
+          message: "Thank you! You've been added to the waitlist.",
+          type: "success",
+        });
         setFormData({ firstName: "", lastName: "", email: "", industry: "" });
+        setEmailError("");
       } else {
         setStatus("error");
-        setToast({ message: data.message || "Something went wrong. Please try again.", type: "error" });
+        setToast({
+          message: data.message || "Something went wrong. Please try again.",
+          type: "error",
+        });
       }
     } catch (error) {
       console.error("Submission error:", error);
@@ -44,15 +66,41 @@ export default function WaitlistUserForm() {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const validateEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const value = e.target.value;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [e.target.name]: value,
     });
+
+    // Validate email in real-time
+    if (e.target.name === "email") {
+      if (value && !validateEmail(value)) {
+        setEmailError("Please enter a valid email address");
+      } else {
+        setEmailError("");
+      }
+    }
+  };
+
+  const handleEmailBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (value && !validateEmail(value)) {
+      setEmailError("Please enter a valid email address");
+    } else {
+      setEmailError("");
+    }
   };
 
   return (
-    <div className="relative mx-auto" style={{ maxWidth: "1024px", width: "100%" }}>
+    <div className="relative w-full flex justify-center">
       <div
         className="relative flex flex-col overflow-hidden"
         style={{
@@ -72,7 +120,8 @@ export default function WaitlistUserForm() {
         <div
           className="absolute right-0 top-0 h-40 w-40"
           style={{
-            background: "linear-gradient(94deg, #3BBCFF -3.9%, #936DFF 113.55%)",
+            background:
+              "linear-gradient(94deg, #3BBCFF -3.9%, #936DFF 113.55%)",
             filter: "blur(60px)",
             borderRadius: "50%",
             transform: "translate(20%, -20%)",
@@ -174,7 +223,7 @@ export default function WaitlistUserForm() {
                     onChange={handleChange}
                     placeholder="First name"
                     required
-                    className="w-full rounded-[20px] border border-[#E2E8F0] bg-white/80 px-5 py-3 text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-[#3BBCFF] focus:ring-4 focus:ring-[#3BBCFF]/10"
+                    className="w-full rounded-[20px] border border-[#E2E8F0] bg-white/80 px-5 py-3 text-gray-900 placeholder:text-black/90 placeholder:font-normal outline-none transition-all focus:border-[#3BBCFF] focus:ring-4 focus:ring-[#3BBCFF]/10"
                     style={{ fontFamily: "var(--font-inter), sans-serif" }}
                   />
                   <input
@@ -184,23 +233,38 @@ export default function WaitlistUserForm() {
                     onChange={handleChange}
                     placeholder="Last name"
                     required
-                    className="w-full rounded-[20px] border border-[#E2E8F0] bg-white/80 px-5 py-3 text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-[#3BBCFF] focus:ring-4 focus:ring-[#3BBCFF]/10"
+                    className="w-full rounded-[20px] border border-[#E2E8F0] bg-white/80 px-5 py-3 text-gray-900 placeholder:text-black/90 placeholder:font-normal outline-none transition-all focus:border-[#3BBCFF] focus:ring-4 focus:ring-[#3BBCFF]/10"
                     style={{ fontFamily: "var(--font-inter), sans-serif" }}
                   />
                 </div>
 
                 {/* Email and Industry Row */}
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="Email address"
-                    required
-                    className="w-full rounded-[20px] border border-[#E2E8F0] bg-white/80 px-5 py-3 text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-[#3BBCFF] focus:ring-4 focus:ring-[#3BBCFF]/10"
-                    style={{ fontFamily: "var(--font-inter), sans-serif" }}
-                  />
+                  <div className="flex flex-col">
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      onBlur={handleEmailBlur}
+                      placeholder="Email address"
+                      required
+                      className={`w-full rounded-[20px] border bg-white/80 px-5 py-3 text-gray-900 placeholder:text-black placeholder:font-normal outline-none transition-all focus:ring-4 focus:ring-[#3BBCFF]/10 ${
+                        emailError
+                          ? "border-red-500 focus:border-red-500"
+                          : "border-[#E2E8F0] focus:border-[#3BBCFF]"
+                      }`}
+                      style={{ fontFamily: "var(--font-inter), sans-serif" }}
+                    />
+                    {emailError && (
+                      <p
+                        className="mt-1 text-xs text-red-500"
+                        style={{ fontFamily: "var(--font-inter), sans-serif" }}
+                      >
+                        {emailError}
+                      </p>
+                    )}
+                  </div>
                   <input
                     type="text"
                     name="industry"
@@ -208,7 +272,7 @@ export default function WaitlistUserForm() {
                     onChange={handleChange}
                     placeholder="Industry / Profession"
                     required
-                    className="w-full rounded-[20px] border border-[#E2E8F0] bg-white/80 px-5 py-3 text-gray-900 placeholder-gray-400 outline-none transition-all focus:border-[#3BBCFF] focus:ring-4 focus:ring-[#3BBCFF]/10"
+                    className="w-full rounded-[20px] border border-[#E2E8F0] bg-white/80 px-5 py-3 text-black outline-none transition-all focus:border-[#3BBCFF] focus:ring-4 focus:ring-[#3BBCFF]/10 self-start placeholder:text-black placeholder:font-normal"
                     style={{ fontFamily: "var(--font-inter), sans-serif" }}
                   />
                 </div>
@@ -217,8 +281,9 @@ export default function WaitlistUserForm() {
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className={`mx-auto w-fit px-8 py-4 text-base font-medium text-white transition-all cursor-pointer hover:opacity-90 active:scale-[0.98] ${status === "loading" ? "opacity-70 cursor-not-allowed" : ""
-                    }`}
+                  className={`mx-auto w-fit px-8 py-4 text-base font-medium text-white transition-all cursor-pointer hover:opacity-90 active:scale-[0.98]  ${
+                    status === "loading" ? "opacity-70 cursor-not-allowed" : ""
+                  }`}
                   style={{
                     borderRadius: "30px",
                     border: "1px solid #FFF",
@@ -257,7 +322,14 @@ export default function WaitlistUserForm() {
                   color: "#2D2D2D",
                 }}
               >
-                <span>✓</span>
+                <span>
+                  <Image
+                    src="/icon/tick.svg"
+                    alt="check"
+                    width={16}
+                    height={16}
+                  />
+                </span>
                 <span>Priority download access</span>
               </div>
               <div
@@ -267,7 +339,15 @@ export default function WaitlistUserForm() {
                   color: "#2D2D2D",
                 }}
               >
-                <span>✓</span>
+                <span>
+                  {" "}
+                  <Image
+                    src="/icon/tick.svg"
+                    alt="check"
+                    width={16}
+                    height={16}
+                  />
+                </span>
                 <span>Get update when we are live</span>
               </div>
               <div
@@ -277,7 +357,15 @@ export default function WaitlistUserForm() {
                   color: "#2D2D2D",
                 }}
               >
-                <span>✓</span>
+                <span>
+                  {" "}
+                  <Image
+                    src="/icon/tick.svg"
+                    alt="check"
+                    width={16}
+                    height={16}
+                  />
+                </span>
                 <span>No Spams</span>
               </div>
             </div>
@@ -294,4 +382,3 @@ export default function WaitlistUserForm() {
     </div>
   );
 }
-

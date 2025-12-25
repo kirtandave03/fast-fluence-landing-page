@@ -3,6 +3,19 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --gradient1: radial-gradient(
+    95.2% 97.67% at 7.09% 23.91%,
+    #3bbcff 0%,
+    #936dff 100%
+  );
+  --gradient1-color: #3bbcff;
+  --gradient12: linear-gradient(94deg, #3bbcff -3.9%, #936dff 113.55%);
+  --Stroke: linear-gradient(
+      118deg,
+      rgba(1, 72, 253, 0.08) 2.73%,
+      rgba(1, 72, 253, 0) 100%
+    ),
+    rgba(173, 173, 173, 0.06);
 }
 
 @theme inline {
@@ -11,6 +24,7 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-inter: var(--font-inter);
+  --font-sora: var(--font-sora);
   --color-text-black: #2d2d2d;
 }
 
@@ -24,7 +38,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+  font-family: var(--font-sora), var(--font-inter), Arial, Helvetica, sans-serif;
 }
 
 @keyframes toastSlideIn {

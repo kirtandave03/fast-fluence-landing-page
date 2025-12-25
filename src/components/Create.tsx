@@ -9,17 +9,17 @@ export default function Create() {
     },
     {
       id: 2,
-      src: "/images/create/div-2.png",
+      src: "/images/create/img-2.png",
       alt: "Instagram UGC example",
     },
     {
       id: 3,
-      src: "/images/create/div-3.png",
+      src: "/images/create/img-3.png",
       alt: "YouTube UGC example",
     },
     {
       id: 4,
-      src: "/images/create/div-4.png",
+      src: "/images/create/img-4.png",
       alt: "Facebook UGC example",
     },
     {
@@ -43,7 +43,15 @@ export default function Create() {
           }}
         />
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-4xl font-bold tracking-tight text-[#111827] sm:text-5xl">
+          <h2
+            className="mb-4 text-3xl text-black sm:text-4xl lg:text-4xl"
+            style={{
+              fontFamily: "var(--font-sora)",
+              fontWeight: 700,
+              lineHeight: "124%",
+              letterSpacing: "2px",
+            }}
+          >
             See what you can{" "}
             <span
               className="bg-clip-text text-transparent"
@@ -66,7 +74,7 @@ export default function Create() {
         {/* Images Grid */}
         <div className="space-y-6">
           {/* First Row - 3 images */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 relative z-10">
             {images.slice(0, 3).map((image) => (
               <div
                 key={image.id}
@@ -85,19 +93,25 @@ export default function Create() {
           </div>
 
           {/* Second Row - 2 images */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 relative z-10">
             {images.slice(3, 5).map((image) => (
               <div
                 key={image.id}
                 className="relative w-full rounded-2xl overflow-hidden"
-                style={{ aspectRatio: "4/3", minHeight: "400px" }}
+                style={{
+                  aspectRatio: "4/3",
+                  minHeight: "400px",
+                }}
               >
                 <Image
                   src={image.src}
                   alt={image.alt}
                   fill
                   className="object-contain"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  style={{
+                    boxShadow: "0 10px 15px 0 rgba(101, 97, 97, 0.10)",
+                  }}
+                  // sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
             ))}

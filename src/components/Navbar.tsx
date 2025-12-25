@@ -7,11 +7,16 @@ import { useState, useEffect } from "react";
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
+
+    // Set initial scroll state
+    handleScroll();
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -40,16 +45,19 @@ export default function Navbar() {
     <nav
       className="fixed top-0 left-0 right-0 z-50 w-full px-4 sm:px-6 lg:px-8 transition-all duration-300"
       style={{
-        background: isScrolled
-          ? "linear-gradient(180deg, rgba(255, 255, 255, 0.70) -20.06%, rgba(255, 255, 255, 0.40) 186.86%)"
-          : "linear-gradient(180deg, rgba(255, 255, 255, 0.40) -20.06%, rgba(255, 255, 255, 0.00) 186.86%)",
-        backdropFilter: isScrolled ? "blur(40px)" : "blur(30px)",
-        borderBottom: isScrolled
-          ? "1px solid rgba(255, 255, 255, 0.2)"
-          : "1px solid transparent",
-        boxShadow: isScrolled
-          ? "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
-          : "none",
+        background:
+          mounted && isScrolled
+            ? "linear-gradient(180deg, rgba(255, 255, 255, 0.70) -20.06%, rgba(255, 255, 255, 0.40) 186.86%)"
+            : "linear-gradient(180deg, rgba(255, 255, 255, 0.40) -20.06%, rgba(255, 255, 255, 0.00) 186.86%)",
+        backdropFilter: mounted && isScrolled ? "blur(40px)" : "blur(30px)",
+        borderBottom:
+          mounted && isScrolled
+            ? "1px solid rgba(255, 255, 255, 0.2)"
+            : "1px solid transparent",
+        boxShadow:
+          mounted && isScrolled
+            ? "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+            : "none",
       }}
     >
       <div className="mx-auto max-w-7xl">
@@ -57,13 +65,22 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex items-center gap-3">
             <Image
-              src="/icon/logo.svg"
+              src="/footer/Logo.png"
               alt="FastFluence Logo"
               width={44}
               height={44}
               className="h-11 w-11"
             />
-            <span className="text-xl font-bold text-gray-900 sm:text-2xl">
+            <span
+              // className="text-xl font-bold text-gray-900 sm:text-2xl"
+              style={{
+                fontFamily: "var(--font-sora)",
+                fontWeight: 700,
+                fontSize: "18.24px",
+                lineHeight: "124%",
+                letterSpacing: "2%",
+              }}
+            >
               FastFluence
             </span>
           </div>
@@ -82,7 +99,8 @@ export default function Navbar() {
             ))}
             <button
               onClick={() => {
-                const waitlistSection = document.getElementById("waitlist-section");
+                const waitlistSection =
+                  document.getElementById("waitlist-section");
                 waitlistSection?.scrollIntoView({ behavior: "smooth" });
               }}
               className="px-6 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
@@ -107,16 +125,19 @@ export default function Navbar() {
             aria-label="Toggle menu"
           >
             <span
-              className={`h-0.5 w-6 bg-gray-900 transition-all ${isMenuOpen ? "translate-y-2 rotate-45" : ""
-                }`}
+              className={`h-0.5 w-6 bg-gray-900 transition-all ${
+                isMenuOpen ? "translate-y-2 rotate-45" : ""
+              }`}
             />
             <span
-              className={`h-0.5 w-6 bg-gray-900 transition-all ${isMenuOpen ? "opacity-0" : ""
-                }`}
+              className={`h-0.5 w-6 bg-gray-900 transition-all ${
+                isMenuOpen ? "opacity-0" : ""
+              }`}
             />
             <span
-              className={`h-0.5 w-6 bg-gray-900 transition-all ${isMenuOpen ? "-translate-y-2 -rotate-45" : ""
-                }`}
+              className={`h-0.5 w-6 bg-gray-900 transition-all ${
+                isMenuOpen ? "-translate-y-2 -rotate-45" : ""
+              }`}
             />
           </button>
         </div>
@@ -137,7 +158,8 @@ export default function Navbar() {
               ))}
               <button
                 onClick={() => {
-                  const waitlistSection = document.getElementById("waitlist-section");
+                  const waitlistSection =
+                    document.getElementById("waitlist-section");
                   waitlistSection?.scrollIntoView({ behavior: "smooth" });
                   setIsMenuOpen(false);
                 }}

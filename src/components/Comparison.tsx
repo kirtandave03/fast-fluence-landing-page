@@ -16,7 +16,7 @@ export default function Comparison() {
   ];
 
   const stepBoxClasses =
-    "flex w-full min-w-[200px] h-[88px] items-center gap-3 rounded-xl bg-[#F8F9FB] p-4 border border-[#F1F2F4]";
+    "flex w-full min-w-[200px] h-[88px] items-center gap-3 rounded-xl p-4 border-[#E5E7EB]";
 
   return (
     <section className="relative py-24 px-4 sm:px-6 lg:px-8">
@@ -58,28 +58,34 @@ export default function Comparison() {
           >
             Save your precious time and money
           </h2>
-          <p className="text-black font-normal" style={{
-            fontFamily: "var(--font-inter)",
-            fontWeight: 400,
-            fontSize: "16px",
-            lineHeight: "22px",
-            letterSpacing: "0%",
-            color: "#2D2D2D",
-          }}>
+          <p
+            className="text-black font-normal"
+            style={{
+              fontFamily: "var(--font-inter)",
+              fontWeight: 400,
+              fontSize: "16px",
+              lineHeight: "22px",
+              letterSpacing: "0%",
+              color: "#2D2D2D",
+            }}
+          >
             Using this is no rocket science
           </p>
         </div>
 
         {/* Traditional Workflow */}
         <div className="mb-24">
-          <h3 className="mb-8 text-lg font-medium text-gray-700" style={{
-            fontFamily: "var(--font-inter)",
-            fontWeight: 400,
-            fontSize: "18px",
-            lineHeight: "24px",
-            letterSpacing: "0%",
-            color: "#2D2D2D",
-          }}>
+          <h3
+            className="mb-6 text-lg font-medium text-gray-700"
+            style={{
+              fontFamily: "var(--font-inter)",
+              fontWeight: 400,
+              fontSize: "18px",
+              lineHeight: "24px",
+              letterSpacing: "0%",
+              color: "#2D2D2D",
+            }}
+          >
             Traditional UGC Workflow
           </h3>
           <div className="flex flex-col items-center gap-4 lg:flex-row lg:items-center lg:gap-0">
@@ -89,9 +95,27 @@ export default function Comparison() {
                   key={step.id}
                   className="relative flex flex-1 items-center"
                 >
-                  <div className={stepBoxClasses}>
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-blue-200 text-sm font-medium text-blue-500">
-                      {step.id}
+                  <div
+                    className={stepBoxClasses}
+                    style={{
+                      backgroundColor: "rgba(255, 255, 255, 0.70)",
+                    }}
+                  >
+                    <div
+                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full p-px"
+                      style={{
+                        background:
+                          "var(--gradient1, radial-gradient(95.2% 97.67% at 7.09% 23.91%, #3bbcff 0%, #936dff 100%))",
+                      }}
+                    >
+                      <div
+                        className="flex h-full w-full items-center justify-center rounded-full text-sm font-noraml text-black"
+                        style={{
+                          backgroundColor: "#EEF7FF",
+                        }}
+                      >
+                        {step.id}
+                      </div>
                     </div>
                     <div className="flex flex-col gap-1">
                       <p
@@ -107,14 +131,19 @@ export default function Comparison() {
                       >
                         {step.title}
                       </p>
-                      <p className="text-xs text-black" style={{
-                        fontFamily: "var(--font-inter)",
-                        fontWeight: 400,
-                        fontSize: "14px",
-                        lineHeight: "22px",
-                        letterSpacing: "-2%",
-                        color: "#2D2D2D",
-                      }}>{step.duration}</p>
+                      <p
+                        className="text-xs text-black"
+                        style={{
+                          fontFamily: "var(--font-inter)",
+                          fontWeight: 400,
+                          fontSize: "14px",
+                          lineHeight: "22px",
+                          letterSpacing: "-2%",
+                          color: "#2D2D2D",
+                        }}
+                      >
+                        {step.duration}
+                      </p>
                     </div>
                   </div>
                   {/* Arrow for Desktop */}
@@ -210,7 +239,15 @@ export default function Comparison() {
                         WebkitTextFillColor: "transparent",
                       }}
                     >
-                      <span className="font-normal text-lg">$</span> 300-500
+                      <span className="font-normal text-lg flex items-center gap-1">
+                        <Image
+                          src="/icon/dollar-sign.svg"
+                          alt="dollar"
+                          width={20}
+                          height={20}
+                        />{" "}
+                        300-500
+                      </span>
                     </span>
                   </div>
                 </div>
@@ -221,7 +258,7 @@ export default function Comparison() {
 
         {/* FastFluence Workflow */}
         <div>
-          <h3 className="mb-8 text-lg font-medium text-gray-700">
+          <h3 className="mb-6 text-lg font-medium text-gray-700">
             FastFluence Fast workflow
           </h3>
           <div className="flex flex-col items-center gap-4 lg:flex-row lg:items-center lg:gap-0">
@@ -231,9 +268,27 @@ export default function Comparison() {
                   key={step.id}
                   className="relative flex flex-1 items-center"
                 >
-                  <div className={stepBoxClasses}>
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-blue-200 text-sm font-medium text-blue-500">
-                      {step.id}
+                  <div
+                    className={stepBoxClasses}
+                    style={{
+                      backgroundColor: "rgba(255, 255, 255, 0.70)",
+                    }}
+                  >
+                    <div
+                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full p-px"
+                      style={{
+                        background:
+                          "var(--gradient1, radial-gradient(95.2% 97.67% at 7.09% 23.91%, #3bbcff 0%, #936dff 100%))",
+                      }}
+                    >
+                      <div
+                        className="flex h-full w-full items-center justify-center rounded-full text-sm font-noraml text-black"
+                        style={{
+                          backgroundColor: "#EEF7FF",
+                        }}
+                      >
+                        {step.id}
+                      </div>
                     </div>
                     <div className="flex flex-col gap-1">
                       <p
@@ -297,7 +352,15 @@ export default function Comparison() {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="font-normal text-base">Total Cost:</span>
-                  <span className="font-medium text-base">$ 15-30</span>
+                  <span className="font-medium text-base flex items-center gap-2">
+                    <Image
+                      src="/icon/dollar-black.svg"
+                      alt="dollar"
+                      width={20}
+                      height={20}
+                    />{" "}
+                    15-30
+                  </span>
                 </div>
               </div>
             </div>

@@ -40,7 +40,7 @@ export default function WhosItFor() {
         {/* Title */}
         <div className="mb-16 text-center">
           <h2
-            className="mb-4 text-4xl font-bold tracking-tight bg-clip-text text-transparent sm:text-5xl"
+            className="mb-4 text-3xl tracking-tight text-[#111827] sm:text-4xl lg:text-4xl"
             style={{
               background:
                 "var(--gradient1, radial-gradient(95.2% 97.67% at 7.09% 23.91%, #3BBCFF 0%, #936DFF 100%))",
@@ -48,6 +48,10 @@ export default function WhosItFor() {
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
               color: "transparent",
+              fontFamily: "var(--font-sora)",
+              fontWeight: 700,
+              lineHeight: "125%",
+              letterSpacing: "2px",
             }}
           >
             Who's it for?
@@ -72,6 +76,7 @@ export default function WhosItFor() {
                 className="flex flex-col h-full rounded-2xl bg-white p-6"
                 style={{
                   fontFamily: "var(--font-inter)",
+                  boxShadow: "0 26px 30px 0 rgba(109, 187, 255, 0.06)",
                 }}
               >
                 {/* Profile Picture and Role Section */}
@@ -99,7 +104,7 @@ export default function WhosItFor() {
                   <p className="text-sm font-medium text-black mb-2">
                     Challenge:
                   </p>
-                  <p className="text-sm text-black leading-relaxed opacity-60">
+                  <p className="text-sm text-black leading-relaxed opacity-60 w-[90%] mr-auto">
                     {persona.challenge}
                   </p>
                 </div>
@@ -109,7 +114,7 @@ export default function WhosItFor() {
                   <p className="text-sm font-medium text-black mb-2">
                     Solution:
                   </p>
-                  <p className="text-sm text-black leading-relaxed opacity-60">
+                  <p className="text-sm text-black leading-relaxed opacity-60 w-[95%] mr-auto">
                     {persona.solution}
                   </p>
                 </div>

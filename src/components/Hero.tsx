@@ -114,7 +114,8 @@ export default function Hero() {
         <div className="relative mx-auto max-w-7xl">
           {/* Heading and Subheading */}
           <div className="mb-12 text-center">
-            <h1 className="mb-4 text-4xl font-bold leading-tight text-gray-900 sm:text-5xl md:text-6xl lg:text-7xl"
+            <h1
+              className="mb-4 text-3xl font-semibold leading-tight text-black sm:text-3xl md:text-4xl lg:text-5xl md:max-w-5xl mx-auto"
               style={{
                 fontFamily: "var(--font-sora)",
                 letterSpacing: "9px",
@@ -122,33 +123,39 @@ export default function Hero() {
             >
               Create{" "}
               <span
-                className="bg-clip-text text-transparent"
+                className="inline-block font-bold"
                 style={{
                   background:
-                    "radial-gradient(76.09% 76.09% at 7.09% 23.91%, #3BBCFF 0%, #936DFF 100%)",
+                    "linear-gradient(94deg, #3bbcff -3.9%, #936dff 113.55%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                  color: "transparent",
+                  backgroundSize: "100%",
                 }}
               >
                 UGC Ads in Minutes
               </span>{" "}
               Not Weeks.
             </h1>
-            <p className="mx-auto max-w-2xl text-lg text-gray-600 sm:text-xl"
+            <p
+              className="mx-auto max-w-2xl text-lg text-gray-600 sm:text-xl"
               style={{
                 fontFamily: "var(--font-inter)",
                 letterSpacing: "0px",
-              }}>
+              }}
+            >
               AI avatars, localized voices, and guided scripts help you launch
               authentic short-form ads at a fraction of the cost.
             </p>
           </div>
 
           {/* Join Waitlist Button */}
-          <div className="mb-8 flex flex-col items-center justify-center">
+          <div className=" flex flex-col items-center justify-center">
             <button
               onClick={() => {
-                const waitlistSection = document.getElementById("waitlist-section");
+                const waitlistSection =
+                  document.getElementById("waitlist-section");
                 waitlistSection?.scrollIntoView({ behavior: "smooth" });
               }}
               className="px-8 py-4 text-base font-medium text-white transition-opacity hover:opacity-90"

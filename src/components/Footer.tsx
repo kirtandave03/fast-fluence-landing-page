@@ -4,6 +4,29 @@ import Image from "next/image";
 import WaitlistUserForm from "./WaitlistUserForm";
 
 export default function Footer() {
+  const socialMediaLinks = [
+    {
+      name: "Google",
+      icon: "/footer/G.png",
+      href: "#",
+    },
+    {
+      name: "Twitter",
+      icon: "/footer/twitter.png",
+      href: "#",
+    },
+    {
+      name: "LinkedIn",
+      icon: "/footer/linkedin-02.png",
+      href: "#",
+    },
+    {
+      name: "Instagram",
+      icon: "/footer/instagram.png",
+      href: "#",
+    },
+  ];
+
   return (
     <footer
       id="waitlist-section"
@@ -11,57 +34,61 @@ export default function Footer() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Waitlist Form */}
-        <div
-          className="mb-12 mx-auto w-full max-w-[1024px] relative"
-          style={{
-            borderRadius: "20px",
-            overflow: "hidden",
-          }}
-        >
-          {/* Top border with gradient */}
+        <div className="mb-12 flex w-full justify-center">
           <div
+            className="relative"
             style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
-              height: "1px",
-              background:
-                "linear-gradient(90deg, rgba(9, 121, 240, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%)",
-              borderRadius: "20px 20px 0 20px",
+              borderRadius: "20px",
+              overflow: "hidden",
+              width: "100%",
+              maxWidth: "1000px",
             }}
-          />
-          {/* Left border with gradient */}
-          <div
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              bottom: 0,
-              width: "1px",
-              background:
-                "linear-gradient(180deg, rgba(9, 121, 240, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%)",
-              borderRadius: "20px 0 0 20px",
-            }}
-          />
-          {/* Corner border effect */}
-          <div
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "20px",
-              height: "20px",
-              borderTop: "1px solid rgba(9, 121, 240, 0.1)",
-              borderLeft: "1px solid rgba(9, 121, 240, 0.1)",
-              borderTopLeftRadius: "20px",
-            }}
-          />
-          <div className="p-10 flex justify-center">
-            <WaitlistUserForm />
+          >
+            {/* Top border with gradient */}
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                height: "1px",
+                background:
+                  "linear-gradient(90deg, rgba(9, 121, 240, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%)",
+                borderRadius: "20px 20px 0 20px",
+              }}
+            />
+            {/* Left border with gradient */}
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                bottom: 0,
+                width: "1px",
+                background:
+                  "linear-gradient(180deg, rgba(9, 121, 240, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%)",
+                borderRadius: "20px 0 0 20px",
+              }}
+            />
+            {/* Corner border effect */}
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "20px",
+                height: "20px",
+                borderTop: "1px solid rgba(9, 121, 240, 0.1)",
+                borderLeft: "1px solid rgba(9, 121, 240, 0.1)",
+                borderTopLeftRadius: "20px",
+              }}
+            />
+            <div className="p-10 flex justify-center">
+              <WaitlistUserForm />
+            </div>
           </div>
         </div>
-        <div className="mb-5 flex items-center justify-center gap-6">
+        <div className="mb-14 flex items-center justify-center gap-6">
           <Image
             src="/footer/Logo.png"
             alt="FastFluence Logo"
@@ -76,7 +103,7 @@ export default function Footer() {
               fontStyle: "normal",
               fontSize: "34.24px",
               lineHeight: "124%",
-              letterSpacing: "5%",
+              letterSpacing: "2%",
             }}
           >
             FastFluence
@@ -84,73 +111,24 @@ export default function Footer() {
         </div>
 
         {/* Social Media Icons */}
-        <div className="flex items-center justify-center gap-2">
-          {/* Google */}
-          <a
-            href="#"
-            className="flex h-[45px] w-[45px] items-center justify-center rounded-[20px] transition-opacity hover:opacity-80"
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(59, 188, 255, 0.2) 0%, rgba(147, 109, 255, 0.2) 100%)",
-            }}
-            aria-label="Google"
-          >
-            <Image src="/footer/G.svg" alt="Google" width={24} height={24} />
-          </a>
-
-          {/* Twitter */}
-          <a
-            href="#"
-            className="flex h-[45px] w-[45px] items-center justify-center rounded-[20px] transition-opacity hover:opacity-80"
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(59, 188, 255, 0.2) 0%, rgba(147, 109, 255, 0.2) 100%)",
-            }}
-            aria-label="Twitter"
-          >
-            <Image
-              src="/footer/twitter.svg"
-              alt="Twitter"
-              width={24}
-              height={24}
-            />
-          </a>
-
-          {/* LinkedIn */}
-          <a
-            href="#"
-            className="flex h-[45px] w-[45px] items-center justify-center rounded-[20px] transition-opacity hover:opacity-80"
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(59, 188, 255, 0.2) 0%, rgba(147, 109, 255, 0.2) 100%)",
-            }}
-            aria-label="LinkedIn"
-          >
-            <Image
-              src="/footer/linkedin-02.svg"
-              alt="LinkedIn"
-              width={24}
-              height={24}
-            />
-          </a>
-
-          {/* Instagram */}
-          <a
-            href="#"
-            className="flex h-[45px] w-[45px] items-center justify-center rounded-[20px] transition-opacity hover:opacity-80"
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(59, 188, 255, 0.2) 0%, rgba(147, 109, 255, 0.2) 100%)",
-            }}
-            aria-label="Instagram"
-          >
-            <Image
-              src="/footer/instagram.svg"
-              alt="Instagram"
-              width={24}
-              height={24}
-            />
-          </a>
+        <div className="flex items-center justify-center gap-4">
+          {socialMediaLinks.map((social) => (
+            <a
+              key={social.name}
+              href={social.href}
+              className="relative flex h-[40px] w-[40px] items-center justify-center transition-opacity hover:opacity-80"
+              // style={{
+              //   background:
+              //     "var(--Stroke, linear-gradient(118deg, rgba(1, 72, 253, 0.08) 2.73%, rgba(1, 72, 253, 0.00) 100%), rgba(173, 173, 173, 0.06))",
+              //   backdropFilter: "blur(16px)",
+              //   border: "1px solid rgba(255, 255, 255, 0.2)",
+              //   boxShadow: "0 1px 2px rgba(0, 0, 0, 0.05)",
+              // }}
+              aria-label={social.name}
+            >
+              <Image src={social.icon} alt={social.name} fill />
+            </a>
+          ))}
         </div>
       </div>
     </footer>

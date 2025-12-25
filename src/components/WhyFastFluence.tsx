@@ -56,8 +56,16 @@ export default function WhyFastFluence() {
     <section className="relative py-24 px-4 sm:px-6 lg:px-8">
       <div className="relative mx-auto max-w-7xl">
         {/* Title */}
-        <div className="mb-12 text-center">
-          <h2 className="mb-4 text-4xl font-bold tracking-tight text-[#111827] sm:text-5xl">
+        <div className="mb-14 text-center">
+          <h2
+            className="mb-4 text-3xl tracking-tight text-[#111827] sm:text-4xl lg:text-5xl"
+            style={{
+              fontFamily: "var(--font-sora)",
+              fontWeight: 700,
+              lineHeight: "125%",
+              letterSpacing: "2px",
+            }}
+          >
             Why{" "}
             <span
               className="bg-clip-text text-transparent"
@@ -126,12 +134,12 @@ export default function WhyFastFluence() {
                 </div>
 
                 {/* Title */}
-                <h3 className="mb-2 text-lg font-medium text-black">
+                <h3 className="mb-2 text-xl font-noraml text-black">
                   {feature.title}
                 </h3>
 
                 {/* Description */}
-                <p className="mb-4 text-sm text-black leading-relaxed">
+                <p className="mb-4 text-base text-black leading-relaxed">
                   {feature.description}
                 </p>
 
