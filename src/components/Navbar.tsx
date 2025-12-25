@@ -2,11 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 
 export default function Navbar() {
-  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -43,6 +41,14 @@ export default function Navbar() {
     setIsMenuOpen(false);
   };
 
+  const handleLogoClick = () => {
+    const element = document.getElementById("ugc");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsMenuOpen(false);
+  };
+
   return (
     <nav
       className="fixed top-0 left-0 right-0 z-50 w-full px-4 sm:px-6 lg:px-8 transition-all duration-300"
@@ -63,7 +69,7 @@ export default function Navbar() {
           {/* Logo */}
           <div
             className="flex items-center gap-3 cursor-pointer"
-            onClick={() => router.push("/#ugc")}
+            onClick={handleLogoClick}
           >
             <Image
               src="/footer/Logo.png"

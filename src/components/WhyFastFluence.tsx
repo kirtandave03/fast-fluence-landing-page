@@ -127,8 +127,19 @@ export default function WhyFastFluence() {
                     />
                   </div>
                   {feature?.id === 1 && (
-                    <div className="text-2xl flex items-center justify-start gap-2 mt-2.5">
-                      🇦🇺 🇳🇿
+                    <div className="text-2xl flex items-center justify-start gap-4 mt-2.5">
+                      <Image
+                        src="/icon/au.png"
+                        alt="aus"
+                        width={24}
+                        height={24}
+                      />
+                      <Image
+                        src="/icon/nz.png"
+                        alt="nz"
+                        width={24}
+                        height={24}
+                      />
                     </div>
                   )}
                 </div>
