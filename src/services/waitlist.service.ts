@@ -30,4 +30,36 @@ export class WaitlistService {
       return saved;
     }
   }
+
+  static async getWaitlists(page: number = 1, limit: number = 10, search: string = "") {
+    const dataSource = await getDataSource();
+    const repository = dataSource.getRepository(WaitlistUser);
+
+    const skip = (page - 1) * limit;
+
+    let queryBuilder = repository.createQueryBuilder("waitlistUser");
+
+    if (search) {
+      queryBuilder = queryBuilder.where(
+        "(waitlistUser.firstName LIKE :search OR waitlistUser.lastName LIKE :search OR waitlistUser.email LIKE :search OR waitlistUser.industry LIKE :search)",
+        { search: `%${search}%` }
+      );
+    }
+
+    const [data, total] = await queryBuilder
+      .orderBy("waitlistUser.createdAt", "DESC")
+      .skip(skip)
+      .take(limit)
+      .getManyAndCount();
+
+    return {
+      data,
+      pagination: {
+        page,
+        limit,
+        total,
+        totalPages: Math.ceil(total / limit),
+      },
+    };
+  }
 }
