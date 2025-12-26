@@ -16,32 +16,37 @@ export default function Comparison() {
   ];
 
   const stepBoxClasses =
-    "flex w-full min-w-[200px] h-[88px] items-center gap-3 rounded-xl p-4 border-[#E5E7EB]";
+    "flex w-full min-w-[200px] h-[88px] items-center gap-3 rounded-xl p-4 border-[#E5E7EB] shadow-md";
 
   return (
     <section
       className="relative pb-12 pt-12 sm:pb-24 sm:pt-24 px-4 sm:px-6 lg:px-8"
       id="vs-traditional-ugc"
     >
-      {/* ... gradients ... */}
+      {/* Gradient backgrounds */}
       <div
-        className="absolute left-1/2 -top-64 h-[589px] w-[589px] -translate-x-1/2"
+        className="absolute left-[65%] -top-64 h-[589px] w-[589px] -translate-x-1/2 pointer-events-none"
         style={{
           borderRadius: "589px",
           background:
-            "radial-gradient(81.91% 83.08% at 27.66% 27.09%, rgba(255, 45, 146, 0.20) 0%, rgba(245, 63, 67, 0.20) 71.35%, rgba(253, 131, 44, 0.20) 100%)",
-          filter: "blur(250px)",
+            "radial-gradient(81.91% 83.08% at 27.66% 27.09%, rgba(255, 45, 146, 0.18) 0%, rgba(245, 63, 67, 0.18) 71.35%, rgba(253, 131, 44, 0.18) 100%)",
+          WebkitFilter: "blur(120px)",
+          filter: "blur(120px)",
           zIndex: 0,
+          willChange: "transform",
         }}
       />
 
       <div
-        className="absolute left-1/2 top-1/2 h-[733px] w-[733px] -translate-x-1/2 -translate-y-1/2"
+        className="absolute left-1/2 top-1/2 h-[733px] w-[733px] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
         style={{
           borderRadius: "733px",
           background:
-            "radial-gradient(95.2% 97.67% at 7.09% 23.91%, rgba(59, 188, 255, 0.20) 0%, rgba(147, 109, 255, 0.20) 100%)",
-          filter: "blur(200px)",
+            "radial-gradient(95.2% 97.67% at 7.09% 23.91%, rgba(59, 188, 255, 0.18) 0%, rgba(147, 109, 255, 0.18) 100%)",
+          WebkitFilter: "blur(120px)",
+          filter: "blur(120px)",
+          zIndex: 0,
+          willChange: "transform",
         }}
       />
 
@@ -151,21 +156,28 @@ export default function Comparison() {
                   </div>
                   {/* Arrow for Mobile (1 column grid) */}
                   {index < traditionalSteps.length - 1 && (
-                    <div className={`block sm:hidden absolute -bottom-6 ${index % 2 === 0 ? "left-0" : "right-0"} z-10`}>
+                    <div
+                      className={`block sm:hidden absolute -bottom-6 ${
+                        index % 2 === 0 ? "left-0" : "right-0"
+                      } z-10`}
+                    >
                       <Image
                         src="/assets/arrow-down.svg"
                         alt="Next step"
                         width={34}
                         height={18}
-                        className={`rotate-90 ${index % 2 === 0 ? "" : "-scale-y-100"}`}
+                        className={`rotate-90 ${
+                          index % 2 === 0 ? "" : "-scale-y-100"
+                        }`}
                       />
                     </div>
                   )}
                   {/* Arrow for Desktop */}
                   {index < traditionalSteps.length - 1 && (
                     <div
-                      className={`hidden lg:block absolute -right-5 z-10 ${index === 1 ? "-top-4" : "-bottom-4"
-                        }`}
+                      className={`hidden lg:block absolute -right-5 z-10 ${
+                        index === 1 ? "-top-4" : "-bottom-4"
+                      }`}
                     >
                       <Image
                         src={
@@ -335,21 +347,28 @@ export default function Comparison() {
                   </div>
                   {/* Arrow for Mobile (1 column grid) */}
                   {index < fastSteps.length - 1 && (
-                    <div className={`block sm:hidden absolute -bottom-6 ${index % 2 === 0 ? "left-0" : "right-0"} z-10`}>
+                    <div
+                      className={`block sm:hidden absolute -bottom-6 ${
+                        index % 2 === 0 ? "left-0" : "right-0"
+                      } z-10`}
+                    >
                       <Image
                         src="/assets/arrow-down.svg"
                         alt="Next step"
                         width={34}
                         height={18}
-                        className={`rotate-90 ${index % 2 === 0 ? "" : "-scale-y-100"}`}
+                        className={`rotate-90 ${
+                          index % 2 === 0 ? "" : "-scale-y-100"
+                        }`}
                       />
                     </div>
                   )}
                   {/* Arrow for Desktop */}
                   {index < fastSteps.length - 1 && (
                     <div
-                      className={`hidden lg:block absolute -right-5 z-10 ${index === 1 ? "-top-4" : "-bottom-4"
-                        }`}
+                      className={`hidden lg:block absolute -right-5 z-10 ${
+                        index === 1 ? "-top-4" : "-bottom-4"
+                      }`}
                     >
                       <Image
                         src={

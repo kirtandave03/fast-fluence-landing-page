@@ -112,6 +112,7 @@ export default function Footer() {
             className="h-[90px] w-[90px]"
           />
           <span
+            className="text-black"
             style={{
               fontFamily: "Sora, sans-serif",
               fontWeight: 700,

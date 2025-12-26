@@ -81,7 +81,7 @@ export default function Navbar() {
               className="h-11 w-11"
             />
             <span
-              // className="text-xl font-bold text-gray-900 sm:text-2xl"
+              className="text-black"
               style={{
                 fontFamily: "var(--font-sora)",
                 fontWeight: 700,
