@@ -62,6 +62,8 @@ export default function Navbar() {
           mounted && isScrolled
             ? "1px solid rgba(255, 255, 255, 0.2)"
             : "1px solid transparent",
+        WebkitFontSmoothing: "antialiased",
+        MozOsxFontSmoothing: "grayscale",
       }}
     >
       <div className="mx-auto max-w-[1340px]">
@@ -86,6 +88,9 @@ export default function Navbar() {
                 fontSize: "18.24px",
                 lineHeight: "124%",
                 letterSpacing: "2%",
+                WebkitFontSmoothing: "antialiased",
+                MozOsxFontSmoothing: "grayscale",
+                textRendering: "optimizeLegibility",
               }}
             >
               FastFluence
@@ -100,6 +105,11 @@ export default function Navbar() {
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
                 className="text-sm font-medium text-gray-900 transition-colors hover:text-gray-700"
+                style={{
+                  WebkitFontSmoothing: "antialiased",
+                  MozOsxFontSmoothing: "grayscale",
+                  textRendering: "optimizeLegibility",
+                }}
               >
                 {link.label}
               </Link>
@@ -119,6 +129,9 @@ export default function Navbar() {
                 border: "1px solid #FFF",
                 background:
                   "radial-gradient(76.09% 76.09% at 7.09% 23.91%, #3BBCFF 0%, #936DFF 100%)",
+                WebkitFontSmoothing: "antialiased",
+                MozOsxFontSmoothing: "grayscale",
+                textRendering: "optimizeLegibility",
               }}
             >
               Join Waitlist
@@ -159,6 +172,12 @@ export default function Navbar() {
                   href={link.href}
                   onClick={(e) => handleLinkClick(e, link.href)}
                   className="text-sm font-medium text-gray-900 transition-colors hover:text-gray-700"
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    WebkitFontSmoothing: "antialiased",
+                    MozOsxFontSmoothing: "grayscale",
+                    textRendering: "optimizeLegibility",
+                  }}
                 >
                   {link.label}
                 </Link>
@@ -175,6 +194,12 @@ export default function Navbar() {
                   borderRadius: "30px",
                   background:
                     "radial-gradient(95.2% 97.67% at 7.09% 23.91%, #3BBCFF 0%, #936DFF 100%)",
+                  fontFamily: "var(--font-sora)",
+                  fontWeight: 700,
+                  letterSpacing: "2%",
+                  WebkitFontSmoothing: "antialiased",
+                  MozOsxFontSmoothing: "grayscale",
+                  textRendering: "optimizeLegibility",
                 }}
               >
                 Join Waitlist

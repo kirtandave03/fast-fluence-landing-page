@@ -151,14 +151,30 @@ export default function Hero() {
           </div>
 
           {/* Join Waitlist Button */}
-          <div className=" flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center relative z-10">
             <button
-              onClick={() => {
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 const waitlistSection =
                   document.getElementById("waitlist-section");
-                waitlistSection?.scrollIntoView({ behavior: "smooth" });
+                if (waitlistSection) {
+                  waitlistSection.scrollIntoView({ behavior: "smooth" });
+                }
               }}
-              className="px-8 py-4 text-base text-white transition-opacity hover:opacity-90"
+              onTouchStart={(e) => {
+                e.stopPropagation();
+              }}
+              onTouchEnd={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const waitlistSection =
+                  document.getElementById("waitlist-section");
+                if (waitlistSection) {
+                  waitlistSection.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className="px-8 py-4 text-base text-white transition-opacity hover:opacity-90 active:opacity-80 cursor-pointer"
               style={{
                 borderRadius: "30px",
                 fontFamily: "var(--font-sora)",
@@ -167,6 +183,10 @@ export default function Hero() {
                 fontWeight: 700,
                 background:
                   "radial-gradient(76.09% 76.09% at 7.09% 23.91%, #3BBCFF 0%, #936DFF 100%)",
+                position: "relative",
+                zIndex: 10,
+                pointerEvents: "auto",
+                WebkitTapHighlightColor: "transparent",
               }}
             >
               Join waitlist
