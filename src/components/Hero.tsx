@@ -98,7 +98,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden py-20" id="ugc">
+    <section className="relative overflow-hidden py-12 sm:py-20" id="ugc">
       <div className="px-4 sm:px-6 lg:px-8">
         {/* Half Ellipse Background */}
         <div

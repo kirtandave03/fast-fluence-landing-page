@@ -39,9 +39,9 @@ export default function Footer() {
   return (
     <footer
       id="waitlist-section"
-      className="bg-white py-24 sm:py-24 md:py-24 w-full"
+      className="bg-white py-12 sm:py-24 md:py-24 w-full"
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-0 sm:px-6 lg:px-8">
         {/* Waitlist Form */}
         <div className="mb-24 flex w-full justify-center">
           <div
@@ -53,8 +53,9 @@ export default function Footer() {
               maxWidth: "1000px",
             }}
           >
-            {/* Top border with gradient */}
+            {/* Top border with gradient - hidden on small screens */}
             <div
+              className="hidden md:block"
               style={{
                 position: "absolute",
                 top: 0,
@@ -66,8 +67,9 @@ export default function Footer() {
                 borderRadius: "20px 20px 0 20px",
               }}
             />
-            {/* Left border with gradient */}
+            {/* Left border with gradient - hidden on small screens */}
             <div
+              className="hidden md:block"
               style={{
                 position: "absolute",
                 top: 0,
@@ -79,8 +81,9 @@ export default function Footer() {
                 borderRadius: "20px 0 0 20px",
               }}
             />
-            {/* Corner border effect */}
+            {/* Corner border effect - hidden on small screens */}
             <div
+              className="hidden md:block"
               style={{
                 position: "absolute",
                 top: 0,
@@ -92,7 +95,7 @@ export default function Footer() {
                 borderTopLeftRadius: "20px",
               }}
             />
-            <div className="p-10 flex justify-center">
+            <div className="px-4 sm:p-6 md:p-10 flex justify-center">
               <WaitlistUserForm />
             </div>
           </div>

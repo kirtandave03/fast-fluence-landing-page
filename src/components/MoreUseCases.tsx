@@ -37,7 +37,7 @@ export default function MoreUseCases() {
   ];
 
   return (
-    <section className="relative pt-24 pb-48 px-4 sm:px-6 lg:px-8 bg-transparent flex flex-col items-center justify-center">
+    <section className="relative pt-12 pb-12 sm:pt-24 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-transparent flex flex-col items-center justify-center">
       <div className="relative mx-auto w-full h-full flex flex-col items-center justify-center">
         <h2
           className="mb-12"

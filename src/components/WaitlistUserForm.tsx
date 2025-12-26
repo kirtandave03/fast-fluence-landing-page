@@ -102,11 +102,9 @@ export default function WaitlistUserForm() {
   return (
     <div className="relative w-full flex justify-center">
       <div
-        className="relative flex flex-col overflow-hidden"
+        className="relative flex flex-col overflow-hidden w-full sm:max-w-[900px]"
         style={{
-          width: "100%",
-          maxWidth: "900px",
-          minHeight: "450px",
+          minHeight: "auto",
           borderRadius: "20px",
           borderTop: "1px solid rgba(255, 255, 255, 0.79)",
           borderLeft: "1px solid rgba(255, 255, 255, 0.79)",
@@ -118,7 +116,7 @@ export default function WaitlistUserForm() {
       >
         {/* Gradient Background - Top Right */}
         <div
-          className="absolute right-0 top-0 h-40 w-40"
+          className="absolute right-0 top-0 h-20 w-20 sm:h-40 sm:w-40"
           style={{
             background:
               "linear-gradient(94deg, #3BBCFF -3.9%, #936DFF 113.55%)",
@@ -130,7 +128,7 @@ export default function WaitlistUserForm() {
 
         {/* Gradient Background - Bottom Left */}
         <div
-          className="absolute bottom-0 left-0 h-40 w-40"
+          className="absolute bottom-0 left-0 h-20 w-20 sm:h-40 sm:w-40"
           style={{
             opacity: 0.2,
             background:
@@ -142,38 +140,18 @@ export default function WaitlistUserForm() {
         />
 
         {/* Inner Box 1 - Padding Container */}
-        <div
-          className="relative flex flex-col items-center"
-          style={{
-            width: "100%",
-            height: "fit-content",
-            paddingLeft: "32px",
-            paddingRight: "32px",
-            gap: "10px",
-            paddingTop: "75px",
-            paddingBottom: "75px",
-          }}
-        >
+        <div className="relative flex flex-col items-center w-full h-fit px-4 py-8 sm:px-8 sm:py-12 md:px-8 md:py-16 lg:px-8 lg:py-20 gap-2 sm:gap-2.5">
           {/* Inner Box 2 - Form Container */}
-          <div
-            className="flex flex-col"
-            style={{
-              width: "100%",
-              height: "fit-content",
-              borderRadius: "15px",
-              gap: "8px",
-              padding: "12px",
-            }}
-          >
+          <div className="flex flex-col w-full h-fit rounded-[15px] gap-2 sm:gap-2 p-3 sm:p-3">
             {/* Heading */}
             <h2
               className="mb-1 text-center"
               style={{
                 fontFamily: "var(--font-sora)",
-                fontSize: "40px",
+                fontSize: "clamp(24px, 5vw, 40px)",
                 fontWeight: 600,
                 lineHeight: "124%",
-                letterSpacing: "2px",
+                letterSpacing: "clamp(0.5px, 0.5vw, 2px)",
                 color: "#2D2D2D",
               }}
             >
@@ -186,10 +164,10 @@ export default function WaitlistUserForm() {
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   fontFamily: "var(--font-sora)",
-                  fontSize: "40px",
+                  fontSize: "clamp(24px, 5vw, 40px)",
                   fontWeight: 800,
                   lineHeight: "124%",
-                  letterSpacing: "1px",
+                  letterSpacing: "clamp(0.5px, 0.5vw, 1px)",
                 }}
               >
                 Best and quickest UGC platform
@@ -198,12 +176,12 @@ export default function WaitlistUserForm() {
 
             {/* Tagline */}
             <p
-              className="mb-4 text-center"
+              className="mb-3 sm:mb-4 text-center px-2"
               style={{
                 fontFamily: "var(--font-sora), sans-serif",
                 color: "#2D2D2D",
                 fontWeight: 400,
-                fontSize: "13px",
+                fontSize: "clamp(11px, 2.5vw, 13px)",
                 lineHeight: "160%",
                 letterSpacing: "0px",
               }}
@@ -212,10 +190,10 @@ export default function WaitlistUserForm() {
             </p>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="mb-3 w-[70%] mx-auto">
-              <div className="flex flex-col gap-4">
+            <form onSubmit={handleSubmit} className="mb-3 w-full sm:w-[90%] md:w-[80%] lg:w-[70%] mx-auto">
+              <div className="flex flex-col gap-3 sm:gap-4">
                 {/* Name Row */}
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div className="grid grid-cols-1 gap-3 sm:gap-4 sm:grid-cols-2">
                   <input
                     type="text"
                     name="firstName"
@@ -223,7 +201,7 @@ export default function WaitlistUserForm() {
                     onChange={handleChange}
                     placeholder="First name"
                     required
-                    className="w-full rounded-[20px] border border-[#3BBCFF] bg-white/80 px-5 py-3 text-gray-900 placeholder:text-black/90 placeholder:font-normal outline-none transition-all focus:border-[#3BBCFF] focus:ring-4 focus:ring-[#3BBCFF]/10"
+                    className="w-full rounded-[15px] sm:rounded-[20px] border border-[#3BBCFF] bg-white/80 px-4 py-2.5 sm:px-5 sm:py-3 text-sm sm:text-base text-gray-900 placeholder:text-black/90 placeholder:font-normal outline-none transition-all focus:border-[#3BBCFF] focus:ring-2 sm:focus:ring-4 focus:ring-[#3BBCFF]/10"
                     style={{ fontFamily: "var(--font-inter), sans-serif" }}
                   />
                   <input
@@ -233,13 +211,13 @@ export default function WaitlistUserForm() {
                     onChange={handleChange}
                     placeholder="Last name"
                     required
-                    className="w-full rounded-[20px] border border-[#3BBCFF] bg-white/80 px-5 py-3 text-gray-900 placeholder:text-black/90 placeholder:font-normal outline-none transition-all focus:border-[#3BBCFF] focus:ring-4 focus:ring-[#3BBCFF]/10"
+                    className="w-full rounded-[15px] sm:rounded-[20px] border border-[#3BBCFF] bg-white/80 px-4 py-2.5 sm:px-5 sm:py-3 text-sm sm:text-base text-gray-900 placeholder:text-black/90 placeholder:font-normal outline-none transition-all focus:border-[#3BBCFF] focus:ring-2 sm:focus:ring-4 focus:ring-[#3BBCFF]/10"
                     style={{ fontFamily: "var(--font-inter), sans-serif" }}
                   />
                 </div>
 
                 {/* Email and Industry Row */}
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div className="grid grid-cols-1 gap-3 sm:gap-4 sm:grid-cols-2">
                   <div className="flex flex-col">
                     <input
                       type="email"
@@ -249,7 +227,7 @@ export default function WaitlistUserForm() {
                       onBlur={handleEmailBlur}
                       placeholder="Email address"
                       required
-                      className={`w-full rounded-[20px] border border-[#3BBCFF] bg-white/80 px-5 py-3 text-gray-900 placeholder:text-black placeholder:font-normal outline-none transition-all focus:ring-4 focus:ring-[#3BBCFF]/10 ${
+                      className={`w-full rounded-[15px] sm:rounded-[20px] border border-[#3BBCFF] bg-white/80 px-4 py-2.5 sm:px-5 sm:py-3 text-sm sm:text-base text-gray-900 placeholder:text-black placeholder:font-normal outline-none transition-all focus:ring-2 sm:focus:ring-4 focus:ring-[#3BBCFF]/10 ${
                         emailError
                           ? "border-red-500 focus:border-red-500"
                           : "border-[#3BBCFF] focus:border-[#3BBCFF]"
@@ -272,7 +250,7 @@ export default function WaitlistUserForm() {
                     onChange={handleChange}
                     placeholder="Industry / Profession"
                     required
-                    className="w-full rounded-[20px] border border-[#3BBCFF] bg-white/80 px-5 py-3 text-black outline-none transition-all focus:border-[#3BBCFF] focus:ring-4 focus:ring-[#3BBCFF]/10 self-start placeholder:text-black placeholder:font-normal"
+                    className="w-full rounded-[15px] sm:rounded-[20px] border border-[#3BBCFF] bg-white/80 px-4 py-2.5 sm:px-5 sm:py-3 text-sm sm:text-base text-black outline-none transition-all focus:border-[#3BBCFF] focus:ring-2 sm:focus:ring-4 focus:ring-[#3BBCFF]/10 self-start placeholder:text-black placeholder:font-normal"
                     style={{ fontFamily: "var(--font-inter), sans-serif" }}
                   />
                 </div>
@@ -281,11 +259,11 @@ export default function WaitlistUserForm() {
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className={`mx-auto w-fit px-8 py-4 text-base font-medium text-white transition-all cursor-pointer hover:opacity-90 active:scale-[0.98]  ${
+                  className={`mx-auto w-full sm:w-fit px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-medium text-white transition-all cursor-pointer hover:opacity-90 active:scale-[0.98] ${
                     status === "loading" ? "opacity-70 cursor-not-allowed" : ""
                   }`}
                   style={{
-                    borderRadius: "30px",
+                    borderRadius: "25px",
                     border: "1px solid #FFF",
                     letterSpacing: "2%",
                     background:
@@ -301,12 +279,12 @@ export default function WaitlistUserForm() {
 
             {/* Instructional Text */}
             <p
-              className=" text-center"
+              className="text-center px-2"
               style={{
                 fontFamily: "var(--font-sora), sans-serif",
                 color: "#2D2D2D",
                 fontWeight: 300,
-                fontSize: "11px",
+                fontSize: "clamp(10px, 2.5vw, 11px)",
                 lineHeight: "160%",
                 letterSpacing: "0px",
               }}
@@ -316,7 +294,7 @@ export default function WaitlistUserForm() {
             </p>
 
             {/* Benefits List */}
-            <div className="flex flex-wrap justify-center gap-[20px] text-sm">
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-5 text-xs sm:text-sm mt-2">
               <div
                 className="flex items-center gap-1"
                 style={{
@@ -324,12 +302,13 @@ export default function WaitlistUserForm() {
                   color: "#2D2D2D",
                 }}
               >
-                <span>
+                <span className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex items-center justify-center">
                   <Image
                     src="/icon/tick.svg"
                     alt="check"
                     width={16}
                     height={16}
+                    className="w-full h-full"
                   />
                 </span>
                 <span>Priority download access</span>
@@ -341,13 +320,13 @@ export default function WaitlistUserForm() {
                   color: "#2D2D2D",
                 }}
               >
-                <span>
-                  {" "}
+                <span className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex items-center justify-center">
                   <Image
                     src="/icon/tick.svg"
                     alt="check"
                     width={16}
                     height={16}
+                    className="w-full h-full"
                   />
                 </span>
                 <span>Get update when we are live</span>
@@ -359,13 +338,13 @@ export default function WaitlistUserForm() {
                   color: "#2D2D2D",
                 }}
               >
-                <span>
-                  {" "}
+                <span className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex items-center justify-center">
                   <Image
                     src="/icon/tick.svg"
                     alt="check"
                     width={16}
                     height={16}
+                    className="w-full h-full"
                   />
                 </span>
                 <span>No Spams</span>

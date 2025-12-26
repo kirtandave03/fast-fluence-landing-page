@@ -35,7 +35,7 @@ export default function WhosItFor() {
   ];
 
   return (
-    <section className="relative py-24 px-4 sm:px-6 lg:px-8">
+    <section className="relative py-12 sm:py-24 px-4 sm:px-6 lg:px-8">
       <div className="relative mx-auto max-w-7xl">
         {/* Title */}
         <div className="mb-16 text-center">

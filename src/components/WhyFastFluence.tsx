@@ -53,7 +53,7 @@ export default function WhyFastFluence() {
   ];
 
   return (
-    <section className="relative py-24 px-4 sm:px-6 lg:px-8" id="why">
+    <section className="relative py-12 sm:py-24 px-4 sm:px-6 lg:px-8" id="why">
       <div className="relative mx-auto max-w-7xl">
         {/* Title */}
         <div className="mb-14 text-center">

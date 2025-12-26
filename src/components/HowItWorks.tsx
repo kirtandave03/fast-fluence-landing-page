@@ -26,7 +26,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="relative py-24 px-4 sm:px-6 lg:px-8" id="how-it-works">
+    <section className="relative py-12 sm:py-24 px-4 sm:px-6 lg:px-8" id="how-it-works">
       {/* Background Gradients */}
       {/* Top Right Gradient */}
       <div

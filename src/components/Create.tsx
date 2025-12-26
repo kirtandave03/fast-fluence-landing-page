@@ -30,7 +30,7 @@ export default function Create() {
   ];
 
   return (
-    <section className="relative py-24 px-4 sm:px-6 lg:px-8" id="use-cases">
+    <section className="relative py-12 sm:py-24 px-4 sm:px-6 lg:px-8" id="use-cases">
       <div className="relative mx-auto max-w-7xl">
         {/* Title */}
         <div
@@ -93,14 +93,13 @@ export default function Create() {
           </div>
 
           {/* Second Row - 2 images */}
-          <div className="grid grid-cols-1 md:grid-cols-2 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 relative z-10">
             {images.slice(3, 5).map((image) => (
               <div
                 key={image.id}
-                className="relative w-full rounded-2xl overflow-hidden"
+                className="relative w-full rounded-2xl overflow-hidden min-h-[250px] sm:min-h-[300px]"
                 style={{
                   aspectRatio: "4/3",
-                  minHeight: "400px",
                 }}
               >
                 <Image
@@ -111,7 +110,7 @@ export default function Create() {
                   style={{
                     boxShadow: "0 10px 15px 0 rgba(101, 97, 97, 0.10)",
                   }}
-                  // sizes="(max-width: 768px) 100vw, 33vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, 50vw"
                 />
               </div>
             ))}

@@ -46,7 +46,7 @@ const faqData = [
 
 export default function FaqQuestions() {
   return (
-    <section className="relative w-full py-24 px-4 sm:px-6 lg:px-8 bg-white">
+    <section className="relative w-full py-12 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="relative mx-auto max-w-4xl">
         {/* Title */}
         <h2
@@ -92,7 +92,6 @@ export default function FaqQuestions() {
                 width: "100%",
                 maxWidth: "432px",
                 minWidth: "280px",
-                height: "144px",
                 borderRadius: "8px",
                 border: "0px solid rgb(255, 255, 255)",
                 boxShadow: "0 26px 30px 0 rgba(217, 217, 217, 0.20)",

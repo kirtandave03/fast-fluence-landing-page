@@ -20,7 +20,7 @@ export default function Comparison() {
 
   return (
     <section
-      className="relative pb-24 pt-48 px-4 sm:px-6 lg:px-8"
+      className="relative pb-12 pt-12 sm:pb-24 sm:pt-24 px-4 sm:px-6 lg:px-8"
       id="vs-traditional-ugc"
     >
       {/* ... gradients ... */}
@@ -92,7 +92,7 @@ export default function Comparison() {
             Traditional UGC Workflow
           </h3>
           <div className="flex flex-col items-center gap-4 lg:flex-row lg:items-center lg:gap-0">
-            <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:flex lg:flex-1 lg:gap-2">
+            <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4 lg:flex lg:flex-1 lg:gap-2">
               {traditionalSteps.map((step, index) => (
                 <div
                   key={step.id}
@@ -149,12 +149,23 @@ export default function Comparison() {
                       </p>
                     </div>
                   </div>
+                  {/* Arrow for Mobile (1 column grid) */}
+                  {index < traditionalSteps.length - 1 && (
+                    <div className={`block sm:hidden absolute -bottom-6 ${index % 2 === 0 ? "left-0" : "right-0"} z-10`}>
+                      <Image
+                        src="/assets/arrow-down.svg"
+                        alt="Next step"
+                        width={34}
+                        height={18}
+                        className={`rotate-90 ${index % 2 === 0 ? "" : "-scale-y-100"}`}
+                      />
+                    </div>
+                  )}
                   {/* Arrow for Desktop */}
                   {index < traditionalSteps.length - 1 && (
                     <div
-                      className={`hidden lg:block absolute -right-5 z-10 ${
-                        index === 1 ? "-top-4" : "-bottom-4"
-                      }`}
+                      className={`hidden lg:block absolute -right-5 z-10 ${index === 1 ? "-top-4" : "-bottom-4"
+                        }`}
                     >
                       <Image
                         src={
@@ -265,7 +276,7 @@ export default function Comparison() {
             FastFluence Fast workflow
           </h3>
           <div className="flex flex-col items-center gap-4 lg:flex-row lg:items-center lg:gap-0">
-            <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:flex lg:flex-1 lg:gap-2">
+            <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-4 lg:flex lg:flex-1 lg:gap-2">
               {fastSteps.map((step, index) => (
                 <div
                   key={step.id}
@@ -322,12 +333,23 @@ export default function Comparison() {
                       </p>
                     </div>
                   </div>
+                  {/* Arrow for Mobile (1 column grid) */}
+                  {index < fastSteps.length - 1 && (
+                    <div className={`block sm:hidden absolute -bottom-6 ${index % 2 === 0 ? "left-0" : "right-0"} z-10`}>
+                      <Image
+                        src="/assets/arrow-down.svg"
+                        alt="Next step"
+                        width={34}
+                        height={18}
+                        className={`rotate-90 ${index % 2 === 0 ? "" : "-scale-y-100"}`}
+                      />
+                    </div>
+                  )}
                   {/* Arrow for Desktop */}
                   {index < fastSteps.length - 1 && (
                     <div
-                      className={`hidden lg:block absolute -right-5 z-10 ${
-                        index === 1 ? "-top-4" : "-bottom-4"
-                      }`}
+                      className={`hidden lg:block absolute -right-5 z-10 ${index === 1 ? "-top-4" : "-bottom-4"
+                        }`}
                     >
                       <Image
                         src={
