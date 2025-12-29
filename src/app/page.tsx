@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import WhyFastFluence from "@/components/WhyFastFluence";
@@ -9,8 +12,11 @@ import FaqQuestions from "@/components/FaqQuestions";
 import Create from "@/components/Create";
 import WhosItFor from "@/components/WhosItFor";
 import ScrollFadeIn from "@/components/ScrollFadeIn";
+import WaitlistSuccessModal from "@/components/WaitlistSuccessModal";
 
 export default function Home() {
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+
   return (
     <div className="min-h-screen w-full bg-white font-sans overflow-x-hidden">
       <Navbar />
@@ -40,9 +46,12 @@ export default function Home() {
           <FaqQuestions />
         </ScrollFadeIn>
         <ScrollFadeIn>
-          <Footer />
+          <Footer onWaitlistSuccess={() => setShowSuccessModal(true)} />
         </ScrollFadeIn>
       </div>
+      {showSuccessModal && (
+        <WaitlistSuccessModal onClose={() => setShowSuccessModal(false)} />
+      )}
     </div>
   );
 }

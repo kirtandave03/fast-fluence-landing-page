@@ -8,6 +8,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -15,11 +16,27 @@ export default function Navbar() {
       setIsScrolled(window.scrollY > 10);
     };
 
+    // Check if modal is open
+    const checkModal = () => {
+      setIsModalOpen(document.body.hasAttribute("data-modal-open"));
+    };
+
     // Set initial scroll state
     handleScroll();
+    checkModal();
+
+    // Watch for modal state changes
+    const observer = new MutationObserver(checkModal);
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ["data-modal-open"],
+    });
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
+    };
   }, []);
 
   const navLinks = [
@@ -48,6 +65,11 @@ export default function Navbar() {
     }
     setIsMenuOpen(false);
   };
+
+  // Hide navbar when modal is open
+  if (isModalOpen) {
+    return null;
+  }
 
   return (
     <nav

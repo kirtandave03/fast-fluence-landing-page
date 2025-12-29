@@ -4,7 +4,11 @@ import { useState } from "react";
 import Toast from "./Toast";
 import Image from "next/image";
 
-export default function WaitlistUserForm() {
+interface WaitlistUserFormProps {
+  onSuccess?: () => void;
+}
+
+export default function WaitlistUserForm({ onSuccess }: WaitlistUserFormProps) {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -46,12 +50,12 @@ export default function WaitlistUserForm() {
 
       if (response.ok) {
         setStatus("success");
-        setToast({
-          message: "Thank you! You've been added to the waitlist.",
-          type: "success",
-        });
         setFormData({ firstName: "", lastName: "", email: "", industry: "" });
         setEmailError("");
+        // Call the success callback to show modal in parent
+        if (onSuccess) {
+          onSuccess();
+        }
       } else {
         setStatus("error");
         setToast({
@@ -190,7 +194,10 @@ export default function WaitlistUserForm() {
             </p>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="mb-3 w-full sm:w-[90%] md:w-[80%] lg:w-[70%] mx-auto">
+            <form
+              onSubmit={handleSubmit}
+              className="mb-3 w-full sm:w-[90%] md:w-[80%] lg:w-[70%] mx-auto"
+            >
               <div className="flex flex-col gap-3 sm:gap-4">
                 {/* Name Row */}
                 <div className="grid grid-cols-1 gap-3 sm:gap-4 sm:grid-cols-2">
@@ -353,7 +360,8 @@ export default function WaitlistUserForm() {
           </div>
         </div>
       </div>
-      {toast && (
+      {/* Error Toast */}
+      {toast && toast.type === "error" && (
         <Toast
           message={toast.message}
           type={toast.type}

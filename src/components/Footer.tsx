@@ -4,7 +4,11 @@ import Image from "next/image";
 import WaitlistUserForm from "./WaitlistUserForm";
 import { useRouter } from "next/navigation";
 
-export default function Footer() {
+interface FooterProps {
+  onWaitlistSuccess?: () => void;
+}
+
+export default function Footer({ onWaitlistSuccess }: FooterProps) {
   const router = useRouter();
   const socialMediaLinks = [
     {
@@ -96,7 +100,7 @@ export default function Footer() {
               }}
             />
             <div className="px-4 sm:p-6 md:p-10 flex justify-center">
-              <WaitlistUserForm />
+              <WaitlistUserForm onSuccess={onWaitlistSuccess} />
             </div>
           </div>
         </div>
