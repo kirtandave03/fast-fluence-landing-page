@@ -278,6 +278,7 @@ export default function Hero() {
             alt="Hero Image"
             width={1200}
             height={600}
+            unoptimized
             className="w-full h-auto object-contain"
           />
         </div>

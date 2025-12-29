@@ -8,21 +8,40 @@ import MoreUseCases from "@/components/MoreUseCases";
 import FaqQuestions from "@/components/FaqQuestions";
 import Create from "@/components/Create";
 import WhosItFor from "@/components/WhosItFor";
+import ScrollFadeIn from "@/components/ScrollFadeIn";
 
 export default function Home() {
   return (
     <div className="min-h-screen w-full bg-white font-sans overflow-x-hidden">
       <Navbar />
       <div className="pt-20">
-        <Hero />
-        <HowItWorks />
-        <Comparison />
-        <WhyFastFluence />
-        <Create />
-        <WhosItFor />
-        <MoreUseCases />
-        <FaqQuestions />
-        <Footer />
+        <ScrollFadeIn>
+          <Hero />
+        </ScrollFadeIn>
+        <ScrollFadeIn delay={100}>
+          <HowItWorks />
+        </ScrollFadeIn>
+        <ScrollFadeIn delay={200}>
+          <Comparison />
+        </ScrollFadeIn>
+        <ScrollFadeIn delay={100}>
+          <WhyFastFluence />
+        </ScrollFadeIn>
+        <ScrollFadeIn delay={200}>
+          <Create />
+        </ScrollFadeIn>
+        <ScrollFadeIn delay={100}>
+          <WhosItFor />
+        </ScrollFadeIn>
+        <ScrollFadeIn delay={200}>
+          <MoreUseCases />
+        </ScrollFadeIn>
+        <ScrollFadeIn delay={100}>
+          <FaqQuestions />
+        </ScrollFadeIn>
+        <ScrollFadeIn>
+          <Footer />
+        </ScrollFadeIn>
       </div>
     </div>
   );
