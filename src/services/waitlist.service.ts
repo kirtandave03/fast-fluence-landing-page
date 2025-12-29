@@ -1,4 +1,5 @@
 import { getDataSource } from "../lib/data-source";
+import { WaitlistUser } from "../entities/WaitlistUser";
 
 export class WaitlistService {
   static async upsertUser(data: {
@@ -10,7 +11,7 @@ export class WaitlistService {
     console.log("Service: Upserting user", data.email);
     const dataSource = await getDataSource();
     console.log("Service: DataSource initialized");
-    const repository = dataSource.getRepository("WaitlistUser");
+    const repository = dataSource.getRepository(WaitlistUser);
 
     let user = await repository.findOneBy({ email: data.email });
     console.log("Service: Existing user found:", !!user);
