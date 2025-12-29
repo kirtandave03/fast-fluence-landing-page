@@ -1,14 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import Toast from "./Toast";
 import Image from "next/image";
 
 interface WaitlistUserFormProps {
   onSuccess?: () => void;
+  onError?: (message: string) => void;
 }
 
-export default function WaitlistUserForm({ onSuccess }: WaitlistUserFormProps) {
+export default function WaitlistUserForm({
+  onSuccess,
+  onError,
+}: WaitlistUserFormProps) {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -18,10 +21,6 @@ export default function WaitlistUserForm({ onSuccess }: WaitlistUserFormProps) {
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
-  const [toast, setToast] = useState<{
-    message: string;
-    type: "success" | "error";
-  } | null>(null);
   const [emailError, setEmailError] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -34,7 +33,6 @@ export default function WaitlistUserForm({ onSuccess }: WaitlistUserFormProps) {
     }
 
     setStatus("loading");
-    setToast(null);
     setEmailError("");
 
     try {
@@ -58,15 +56,20 @@ export default function WaitlistUserForm({ onSuccess }: WaitlistUserFormProps) {
         }
       } else {
         setStatus("error");
-        setToast({
-          message: data.message || "Something went wrong. Please try again.",
-          type: "error",
-        });
+        const errorMessage =
+          data.message || "Something went wrong. Please try again.";
+        // Call the error callback to show toast in parent
+        if (onError) {
+          onError(errorMessage);
+        }
       }
     } catch (error) {
       console.error("Submission error:", error);
       setStatus("error");
-      setToast({ message: "Failed to connect to the server.", type: "error" });
+      // Call the error callback to show toast in parent
+      if (onError) {
+        onError("Failed to connect to the server.");
+      }
     }
   };
 
@@ -360,14 +363,6 @@ export default function WaitlistUserForm({ onSuccess }: WaitlistUserFormProps) {
           </div>
         </div>
       </div>
-      {/* Error Toast */}
-      {toast && toast.type === "error" && (
-        <Toast
-          message={toast.message}
-          type={toast.type}
-          onClose={() => setToast(null)}
-        />
-      )}
     </div>
   );
 }

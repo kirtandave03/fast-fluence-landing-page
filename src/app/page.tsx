@@ -13,9 +13,14 @@ import Create from "@/components/Create";
 import WhosItFor from "@/components/WhosItFor";
 import ScrollFadeIn from "@/components/ScrollFadeIn";
 import WaitlistSuccessModal from "@/components/WaitlistSuccessModal";
+import Toast from "@/components/Toast";
 
 export default function Home() {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [toast, setToast] = useState<{
+    message: string;
+    type: "success" | "error";
+  } | null>(null);
 
   return (
     <div className="min-h-screen w-full bg-white font-sans overflow-x-hidden">
@@ -46,11 +51,21 @@ export default function Home() {
           <FaqQuestions />
         </ScrollFadeIn>
         <ScrollFadeIn>
-          <Footer onWaitlistSuccess={() => setShowSuccessModal(true)} />
+          <Footer
+            onWaitlistSuccess={() => setShowSuccessModal(true)}
+            onWaitlistError={(message) => setToast({ message, type: "error" })}
+          />
         </ScrollFadeIn>
       </div>
       {showSuccessModal && (
         <WaitlistSuccessModal onClose={() => setShowSuccessModal(false)} />
+      )}
+      {toast && (
+        <Toast
+          message={toast.message}
+          type={toast.type}
+          onClose={() => setToast(null)}
+        />
       )}
     </div>
   );

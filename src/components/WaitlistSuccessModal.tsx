@@ -220,7 +220,7 @@ export default function WaitlistSuccessModal({
           {/* Close Button */}
           <button
             onClick={onClose}
-            className="rounded-full px-8 py-3 text-base font-medium transition-opacity hover:opacity-80"
+            className="rounded-full px-8 py-3 text-base font-medium transition-opacity hover:opacity-80 cursor-pointer"
             style={{
               background:
                 "radial-gradient(95.2% 97.67% at 7.09% 23.91%, #3BBCFF 0%, #936DFF 100%)",
