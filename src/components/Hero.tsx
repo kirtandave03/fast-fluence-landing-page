@@ -102,12 +102,13 @@ export default function Hero() {
       <div className="px-4 sm:px-6 lg:px-8">
         {/* Half Ellipse Background */}
         <div
-          className="absolute left-0 top-0 h-[571px] w-[571px] -translate-x-1/2 -translate-y-1/2"
+          className="absolute left-0 top-0 h-[571px] w-[571px] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
           style={{
             borderRadius: "571px",
             background:
               "radial-gradient(95.2% 97.67% at 7.09% 23.91%, rgba(59, 188, 255, 0.20) 0%, rgba(147, 109, 255, 0.20) 100%)",
             filter: "blur(100px)",
+            zIndex: 0,
           }}
         />
 
@@ -151,8 +152,10 @@ export default function Hero() {
           </div>
 
           {/* Join Waitlist Button */}
-          <div className="flex flex-col items-center justify-center relative z-10">
-            <button
+          <div className="flex flex-col items-center justify-center relative z-20">
+            <div
+              role="button"
+              tabIndex={0}
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
@@ -163,9 +166,7 @@ export default function Hero() {
                 }
               }}
               onTouchStart={(e) => {
-                e.stopPropagation();
-              }}
-              onTouchEnd={(e) => {
+                console.log("onTouchStart fired");
                 e.preventDefault();
                 e.stopPropagation();
                 const waitlistSection =
@@ -174,7 +175,17 @@ export default function Hero() {
                   waitlistSection.scrollIntoView({ behavior: "smooth" });
                 }
               }}
-              className="px-8 py-4 text-base text-white transition-opacity hover:opacity-90 active:opacity-80 cursor-pointer"
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  const waitlistSection =
+                    document.getElementById("waitlist-section");
+                  if (waitlistSection) {
+                    waitlistSection.scrollIntoView({ behavior: "smooth" });
+                  }
+                }
+              }}
+              className="px-8 py-4 text-base text-white transition-opacity hover:opacity-90 active:opacity-80 cursor-pointer touch-manipulation relative z-20"
               style={{
                 borderRadius: "30px",
                 fontFamily: "var(--font-sora)",
@@ -184,13 +195,19 @@ export default function Hero() {
                 background:
                   "radial-gradient(76.09% 76.09% at 7.09% 23.91%, #3BBCFF 0%, #936DFF 100%)",
                 position: "relative",
-                zIndex: 10,
+                zIndex: 9999,
                 pointerEvents: "auto",
                 WebkitTapHighlightColor: "transparent",
+                touchAction: "manipulation",
+                WebkitTouchCallout: "none",
+                userSelect: "none",
+                minWidth: "44px",
+                minHeight: "44px",
+                outline: "none",
               }}
             >
               Join waitlist
-            </button>
+            </div>
           </div>
 
           {/* 3D Perspective Carousel */}

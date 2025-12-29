@@ -48,6 +48,7 @@ export default function ScrollFadeIn({
       }`}
       style={{
         transitionDelay: isVisible ? `${delay}ms` : "0ms",
+        pointerEvents: "auto",
       }}
     >
       {children}

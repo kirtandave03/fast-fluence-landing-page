@@ -26,27 +26,32 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="relative py-12 sm:py-24 px-4 sm:px-6 lg:px-8" id="how-it-works">
+    <section
+      className="relative py-12 sm:py-24 px-4 sm:px-6 lg:px-8"
+      id="how-it-works"
+    >
       {/* Background Gradients */}
       {/* Top Right Gradient */}
       <div
-        className="absolute -right-64 -top-96 h-[589px] w-[589px]"
+        className="absolute -right-64 -top-96 h-[589px] w-[589px] pointer-events-none"
         style={{
           borderRadius: "589px",
           background:
             "radial-gradient(81.91% 83.08% at 27.66% 27.09%, rgba(255, 45, 146, 0.20) 0%, rgba(245, 63, 67, 0.20) 71.35%, rgba(253, 131, 44, 0.20) 100%)",
           filter: "blur(250px)",
+          zIndex: 0,
         }}
       />
 
       {/* Bottom Center Gradient */}
       <div
-        className="absolute left-1/2 -bottom-96 h-[589px] w-[589px] -translate-x-1/2"
+        className="absolute left-1/2 -bottom-96 h-[589px] w-[589px] -translate-x-1/2 pointer-events-none"
         style={{
           borderRadius: "589px",
           background:
             "radial-gradient(81.91% 83.08% at 27.66% 27.09%, rgba(255, 45, 146, 0.20) 0%, rgba(245, 63, 67, 0.20) 71.35%, rgba(253, 131, 44, 0.20) 100%)",
           filter: "blur(250px)",
+          zIndex: 0,
         }}
       />
 
