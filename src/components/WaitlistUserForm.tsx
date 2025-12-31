@@ -1,10 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import Toast from "./Toast";
 import Image from "next/image";
 
-export default function WaitlistUserForm() {
+interface WaitlistUserFormProps {
+  onSuccess?: () => void;
+  onError?: (message: string) => void;
+}
+
+export default function WaitlistUserForm({
+  onSuccess,
+  onError,
+}: WaitlistUserFormProps) {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -14,10 +21,6 @@ export default function WaitlistUserForm() {
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
-  const [toast, setToast] = useState<{
-    message: string;
-    type: "success" | "error";
-  } | null>(null);
   const [emailError, setEmailError] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -30,7 +33,6 @@ export default function WaitlistUserForm() {
     }
 
     setStatus("loading");
-    setToast(null);
     setEmailError("");
 
     try {
@@ -46,23 +48,28 @@ export default function WaitlistUserForm() {
 
       if (response.ok) {
         setStatus("success");
-        setToast({
-          message: "Thank you! You've been added to the waitlist.",
-          type: "success",
-        });
         setFormData({ firstName: "", lastName: "", email: "", industry: "" });
         setEmailError("");
+        // Call the success callback to show modal in parent
+        if (onSuccess) {
+          onSuccess();
+        }
       } else {
         setStatus("error");
-        setToast({
-          message: data.message || "Something went wrong. Please try again.",
-          type: "error",
-        });
+        const errorMessage =
+          data.message || "Something went wrong. Please try again.";
+        // Call the error callback to show toast in parent
+        if (onError) {
+          onError(errorMessage);
+        }
       }
     } catch (error) {
       console.error("Submission error:", error);
       setStatus("error");
-      setToast({ message: "Failed to connect to the server.", type: "error" });
+      // Call the error callback to show toast in parent
+      if (onError) {
+        onError("Failed to connect to the server.");
+      }
     }
   };
 
@@ -190,7 +197,10 @@ export default function WaitlistUserForm() {
             </p>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="mb-3 w-full sm:w-[90%] md:w-[80%] lg:w-[70%] mx-auto">
+            <form
+              onSubmit={handleSubmit}
+              className="mb-3 w-full sm:w-[90%] md:w-[80%] lg:w-[70%] mx-auto"
+            >
               <div className="flex flex-col gap-3 sm:gap-4">
                 {/* Name Row */}
                 <div className="grid grid-cols-1 gap-3 sm:gap-4 sm:grid-cols-2">
@@ -353,13 +363,6 @@ export default function WaitlistUserForm() {
           </div>
         </div>
       </div>
-      {toast && (
-        <Toast
-          message={toast.message}
-          type={toast.type}
-          onClose={() => setToast(null)}
-        />
-      )}
     </div>
   );
 }

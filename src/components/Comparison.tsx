@@ -318,7 +318,7 @@ export default function Comparison() {
                     </div>
                     <div className="flex flex-col gap-1">
                       <p
-                        className="text-sm font-normal text-black leading-tight"
+                        className="text-sm font-normal text-black leading-tight whitespace-nowrap"
                         style={{
                           fontFamily: "var(--font-inter)",
                           fontWeight: 400,
