@@ -18,9 +18,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (email === "admin@gmail.com" && password === "admin@123") {
+    if (email === "will@canterburyservices.com.au" && password === "Admin@123") {
       return NextResponse.json(
-        { message: "Login successful", email: "admin@gmail.com" },
+        { message: "Login successful", email: "will@canterburyservices.com.au" },
         { status: 200, headers: corsHeaders }
       );
     }
